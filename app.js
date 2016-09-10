@@ -25,7 +25,7 @@ app.use(express.static('public'));
 app.use('/api', routes);
 
 app.listen(port, function() {
-  console.log("Express is running on port " + port);
+  console.log("FourLimes is up on port " + port);
 });
 
 module.exports = app;

@@ -23,6 +23,13 @@ router.route('/users')
   .get(usersController.index)
   .post(usersController.create);
 
+router.route('/users/:id')
+  .all(secureRoute)
+  .get(usersController.show)
+  .put(usersController.update)
+  .patch(usersController.update)
+  .delete(usersController.delete);
+
 router.post('/register', authController.register);
 router.post('/login', authController.login);
 
