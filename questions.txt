@@ -1,0 +1,3 @@
+- How to change the currency in ngCart from $ to £?
+
+-  

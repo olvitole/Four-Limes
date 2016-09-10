@@ -1,5 +1,5 @@
 angular
-  .module('AngularApp', ["ngResource", 'ui.router', 'angular-jwt'])
+  .module('AngularApp', ["ngResource", 'ui.router', 'angular-jwt', 'ngCart'])
   .constant("API_URL", "http://localhost:3000/api")
   .config(Router)
   .config(setupInterceptor);
@@ -28,7 +28,13 @@ function Router($stateProvider, $urlRouterProvider) {
       url: '/register',
       templateUrl: '/templates/register.html',
       controller: "RegisterController as register"
-    });
+    })
+
+    .state('store', {
+      url: '/store',
+      templateUrl: '/templates/store.html',
+      controller: "StoreController as store"
+    })
 
 
   $urlRouterProvider.otherwise("/");

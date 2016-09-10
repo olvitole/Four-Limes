@@ -3,6 +3,7 @@ var jwt = require('jsonwebtoken');
 var secret = require('../config/tokens').secret;
 var usersController = require('../controllers/users');
 var authController = require('../controllers/authentications');
+var ordersController = require('../controllers/ordersController');
 
 function secureRoute(req, res, next) {
   if(!req.headers.authorization) 
@@ -17,6 +18,10 @@ function secureRoute(req, res, next) {
     next();
   });
 }
+
+router.route('/orders')
+  .get(ordersController.index)
+  .post(ordersController.create);
 
 router.route('/users')
   .all(secureRoute)
