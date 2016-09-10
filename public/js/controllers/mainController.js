@@ -22,4 +22,8 @@ function mainController(TokenService, $state, $rootScope) {
       $state.go("login");
       self.errorMessage = "Ah, Ah, Aaaah. You're not getting in here!";
   });
+
+  $rootScope.$on("$stateChangeStart", function() {
+      self.errorMessage = null;
+  });
 }

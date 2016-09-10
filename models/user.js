@@ -3,8 +3,9 @@ var bcrypt = require('bcrypt');
 
 var userSchema = new mongoose.Schema({
   firstName: { type: String },
-  email: { type: String },
-  passwordHash: { type: String} 
+  email: { type: String, required: true},
+  passwordHash: { type: String, required: true},
+  isAdmin: { type: Boolean, default: false} 
 });
 
 userSchema.set('toJSON', {
