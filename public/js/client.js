@@ -1,21 +1,35 @@
 angular
-  .module('AngularApp'), ["ngResource"]
-  .config(Router);
+  .module('AngularApp', ["ngResource", 'ui.router', 'angular-jwt'])
+  .constant("API_URL", "http://localhost:3000/api")
+  .config(Router)
+  .config(setupInterceptor);
+
+setupInterceptor.$inject = ["$httpProvider"];
+function setupInterceptor($httpProvider) {
+  return $httpProvider.interceptors.push("AuthInterceptor");
+}   
 
 Router.$inject = ["$stateProvider", '$urlRouterProvider'];
 function Router($stateProvider, $urlRouterProvider) {
+  
   $stateProvider
-    .state('red', {
-      url: '/red',
-      templateUrl: '/templates/red-page.html',
-      controller: "mainController as main"
-    })
-    .state('blue', {
-      url: '/blue',
-      templateUrl: '/templates/blue-page.html',
-      controller: "mainController as main"
+    .state("home", {
+      url: "/",
+      templateUrl: "/templates/home.html"
     })
 
-  $urlRouterProvider.otherwise("/red");
+    .state('login', {
+      url: '/login',
+      templateUrl: '/templates/login.html',
+      controller: "LoginController as login"
+    })
 
+    .state('register', {
+      url: '/register',
+      templateUrl: '/templates/register.html',
+      controller: "RegisterController as register"
+    });
+
+
+  $urlRouterProvider.otherwise("/");
 }

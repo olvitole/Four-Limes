@@ -2,18 +2,42 @@
 <html ng-app="AngularApp">
 <head>
   <title>Project 4 Test Deploy</title>
+
+  <!-- Vendor JS Files -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-resource.min.js"></script>
   <script src="//npmcdn.com/angular-ui-router/release/angular-ui-router.min.js"></script>
   <script src="//cdn.jsdelivr.net/satellizer/0.13.1/satellizer.min.js"></script>
+  <script src="https://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
+
+  <!-- Custom JS Files -->
   <script src="/js/client.js"></script>
+
   <script src="/js/controllers/mainController.js"></script>
+  <script src="/js/controllers/loginController.js"></script>
+  <script src="/js/controllers/registerController.js"></script>
 
+  <script src="/js/models/users.js"></script>
+
+  <script src="/js/services/authInterceptor.js"></script>
+  <script src="/js/services/tokenServices.js"></script>  
+
+  <!-- Custom CSS Files -->
   <link rel="stylesheet" href="/css/app.css">
-</head>
-<body>
-  <h1>Will's Test App</h1>
-  <main ui-view></main>
 
+</head>
+<body ng-controller="mainController as main">
+  <h1>Will's Test App</h1>
+  <!-- <div ng-controller="LoginController as login"> -->
+  <div>  
+    <a ui-sref="home">Home</a>
+    <a ng-if="!main.currentUser" ui-sref="login">Login</a>
+    <a ng-if="!main.currentUser" ui-sref="register">Register</a>
+    <a ng-if="main.currentUser" ng-click="main.logout()">Logout</a>
+  </div>
+  <div class="container" ng-if="main.errorMessage">
+      <div class="alert alert-danger">{{ main.errorMessage }}</div>
+  </div>  
+  <main ui-view></main>
 </body>
 </html>

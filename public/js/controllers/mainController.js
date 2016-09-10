@@ -2,13 +2,24 @@ angular
   .module("AngularApp")
   .controller("mainController", mainController);
 
-mainController.$inject = ["$state"];
+mainController.$inject = ["TokenService", '$state', '$rootScope'];
 
-function mainController($state) {  
-  this.red = function() {
-    $state.go('red');
+function mainController(TokenService, $state, $rootScope) {
+  var self = this;
+  this.currentUser = TokenService.decodeToken();
+
+  this.logout = function logout() {
+    TokenService.clearToken();
+    this.currentUser = null;
+    $state.go('home');
   }
-  this.blue = function() {
-    $state.go('blue');
-  }
+
+  $rootScope.$on("loggedIn", function() {
+    self.currentUser = TokenService.decodeToken();
+  });
+
+  $rootScope.$on("unauthorized", function() {
+      $state.go("login");
+      self.errorMessage = "Ah, Ah, Aaaah. You're not getting in here!";
+  });
 }
