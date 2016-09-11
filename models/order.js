@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
 
 var orderSchema = new mongoose.Schema({
   shipping: { type: Number },

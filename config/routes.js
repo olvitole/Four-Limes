@@ -4,6 +4,7 @@ var secret = require('../config/tokens').secret;
 var usersController = require('../controllers/users');
 var authController = require('../controllers/authentications');
 var ordersController = require('../controllers/ordersController');
+var productsController = require('../controllers/productsController');
 
 function secureRoute(req, res, next) {
   if(!req.headers.authorization) 
@@ -18,6 +19,18 @@ function secureRoute(req, res, next) {
     next();
   });
 }
+
+router.route('/product')
+  .all(secureRoute)
+  .get(productsController.index)
+  .post(productsController.create);
+
+router.route('/product/:id')
+  .all(secureRoute)
+  .get(productsController.show)
+  .put(productsController.update)
+  .patch(productsController.update)
+  .delete(productsController.delete);
 
 router.route('/orders')
   .get(ordersController.index)
