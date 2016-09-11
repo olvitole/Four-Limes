@@ -18,8 +18,10 @@
   <script src="/js/controllers/loginController.js"></script>
   <script src="/js/controllers/registerController.js"></script>
   <script src="/js/controllers/storeController.js"></script>
+  <script src="/js/controllers/productController.js"></script>
 
   <script src="/js/models/users.js"></script>
+  <script src="/js/models/products.js"></script>
 
   <script src="/js/services/authInterceptor.js"></script>
   <script src="/js/services/tokenServices.js"></script>  
@@ -36,7 +38,7 @@
     <a ng-if="!main.currentUser" ui-sref="login">Login</a>
     <a ng-if="!main.currentUser" ui-sref="register">Register</a>
     <a ng-if="main.currentUser" ng-click="main.logout()">Logout</a>
-    <p>Current User: {{ main.currentUser }}</p>
+    <!-- <p>Current User: {{ main.currentUser }}</p> -->
     <a ng-if="main.currentUser.isAdmin">Admin</a>
   </div>
   <div class="container" ng-if="main.errorMessage">

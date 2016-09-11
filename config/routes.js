@@ -33,6 +33,7 @@ router.route('/product/:id')
   .delete(productsController.delete);
 
 router.route('/orders')
+  //.all(secureRoute)         COMMENTED OUT FOR TESTING
   .get(ordersController.index)
   .post(ordersController.create);
 

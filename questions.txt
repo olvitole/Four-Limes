@@ -1,3 +1,7 @@
-- How to change the currency in ngCart from $ to £?
+DONE - How to change the currency in ngCart from $ to £?
 
--  
+- How to get readout of length of seeds created. when running node db/seeds?
+
+- How to hardcode the correct url for the orders api? (In store.html template)
+
+- How to hardcode the correct url in the product controller? (Front end)

@@ -47,7 +47,7 @@
                       ng-click="item.setQuantity(-1, true)"></span>&nbsp;&nbsp;
                 {{ item.getQuantity() | number }}&nbsp;&nbsp;
                 <span class="glyphicon glyphicon-plus" ng-click="item.setQuantity(1, true)"></span></td>
-            <td>{{ item.getPrice() | currency: ngCart.getCurrency()}}</td>
+            <td>{{ item.getPrice() | currency: ngCart.getCurrency() }}</td>
             <td>{{ item.getTotal() | currency: ngCart.getCurrency() }}</td>
         </tr>
         </tbody>

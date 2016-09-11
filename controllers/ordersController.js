@@ -2,7 +2,7 @@ var Order = require('../models/order');
 
 // ORDERS INDEX
 function ordersIndex(req, res) {
-  Order.find(function(err, users) {
+  Order.find(function(err, orders) {
     if(err) return res.status(500).json(err);
     return res.status(200).json(orders);
   });
@@ -10,7 +10,7 @@ function ordersIndex(req, res) {
 
 // ORDERS CREATE
 function ordersCreate(req, res) {
-  Order.create(req.body, function(err, user) {
+  Order.create(req.body, function(err, order) {
     if(err) return res.status(400).json(err);
     return res.status(201).json(order);
   });
