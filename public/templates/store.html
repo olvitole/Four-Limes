@@ -16,15 +16,17 @@
     <div class="row"> 
       <div class="card-group">
         <div class="col-md-4" ng-repeat="product in productsArray">
-          <div class="card card-block">
-            <h4 class="card-title">{{ product.itemName }}</h4>
-              <h6 class="card-subtitle text-muted">{{ product.type }}</h6>
-          </div>
-          <img ng-src="{{ product.image }}" alt="{{ product.itemName }} image">
-          <div class="card-block">
-            <p class="card-text">{{ product.shortDescription }}</p>
-            <a href="#" class="card-link">More Details...</a>
-            <ngcart-addtocart id="{{ product._id }}" name="{{ product.itemName }}" price="{{ product.price }}" quantity="1" quantity-max="{{ product.quantityAvail }}">Add to Basket</ngcart-addtocart>
+          <div class="card">
+             <div class="card-block">
+              <h4 class="card-title">{{ product.itemName }}</h4>
+                <h6 class="card-subtitle text-muted">{{ product.type }}</h6>
+            </div>
+            <img ng-src="{{ product.image }}" alt="{{ product.itemName }} image">
+            <div class="card-block">
+              <p class="card-text">{{ product.shortDescription }}</p>
+              <a href="#" class="card-link">More Details...</a>
+              <ngcart-addtocart id="{{ product._id }}" name="{{ product.itemName }}" price="{{ product.price }}" quantity="1" quantity-max="{{ product.quantityAvail }}">Add to Basket</ngcart-addtocart>
+            </div>
           </div>
         </div>
       </div>

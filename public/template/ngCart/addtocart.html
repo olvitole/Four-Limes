@@ -13,6 +13,8 @@
            ng-transclude></a>
     </div>
     <mark  ng-show="inCart()">
-        This item is in your cart. <a ng-click="ngCart.removeItemById(id)" style="cursor: pointer;">Remove</a>
+        Item added to basket.
+        <br> 
+        <button  type="button" class="btn btn-secondary" ng-click="ngCart.removeItemById(id)" style="cursor: pointer;">Remove</button>
     </mark>
 </div>
