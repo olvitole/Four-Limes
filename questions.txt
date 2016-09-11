@@ -1,7 +1,28 @@
-DONE - How to change the currency in ngCart from $ to £?
+- How to change the currency in ngCart from $ to £?
 
 - How to get readout of length of seeds created. when running node db/seeds?
 
 - How to hardcode the correct url for the orders api? (In store.html template)
 
 - How to hardcode the correct url in the product controller? (Front end)
+
+
+
+{ "shipping" : 2.99
+  "taxRate" : null
+  "tax :null,
+  "items":[
+    {
+    "_id":"57d5146a2eb7aff3654bdc20",
+    "_name": "Apples", 
+    "_price": 1.39,
+    "_quantity": 3
+    }, {
+    "_id": "57d5146a2eb7aff3654bdc24",
+    "_name": "Bananas",
+    "_price": 0.99,
+    "_quantity": 7 }
+  ]
+}
+
+- ConsoleLog of log order = 2x "This item has no data" --> addItem has no data values.

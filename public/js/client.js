@@ -36,6 +36,11 @@ function Router($stateProvider, $urlRouterProvider) {
       controller: "StoreController as store"
     })
 
+    .state('admin', {
+      url: '/admin',
+      templateUrl: '/templates/admin.html',
+      controller: "AdminController as admin"
+    })
 
   $urlRouterProvider.otherwise("/");
 }
