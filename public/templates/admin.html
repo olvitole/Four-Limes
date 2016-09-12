@@ -1,1 +1,23 @@
 <h1>Admin Page</h1>
+
+<!-- AdminController as admin -->
+<h5>Orders</h5>
+<ul>
+  <li ng-repeat="order in admin.all"><button class="btn btn-secondary" ui-sref="orderShow({ id: order._id })">Detail</button>Order: {{ order._id }}<button type="button" ng-click="admin.delete(order)" class="btn btn-danger">Remove from orders list</button>
+   <!--  <ul>
+      <li ng-repeat="singlePart in order">
+        <p ng-if="singlePart.shipping">Shipping: {{ singlePart.shipping }}</p>
+        <p ng-if="singlePart.subTotal">Sub-Total: {{ singlePart.subTotal }}</p>
+        <p ng-if="singlePart.totalCost">Total Cost: {{ singlePart.totalCost }}</p>
+        <p ng-if="singlePart.items">Items: {{ singlePart.items }}</p>
+      </li>
+    </ul> -->
+    <hr>
+  </li>
+</ul>
+
+<hr>
+<div>
+  <h5>Product Management</h5>
+  <button class="btn btn-secondary" ng-click="admin.addProduct()">Add Product</button>
+</div>

@@ -26,3 +26,13 @@
 }
 
 - ConsoleLog of log order = 2x "This item has no data" --> addItem has no data values.
+
+1) - How to turn the id's into the actual products in the orders?
+
+2) - this.selected = Order.get( $state.params ); get throws error in adminshow controller 
+
+- How to stop admin/newproduct from going to the /:id page?
+
+- How to do boolean on the onSpecial button on add product page?
+
+- Add Date and time to the Order? Add delivery time...? 

@@ -10,7 +10,8 @@ var productSchema = new mongoose.Schema({
   longDescription: { type: String },
   quantityAvail: { type: Number },
   packSize: { type: String },
-  onSpecial: { type: Boolean, default: false } 
+  onSpecial: { type: Boolean, default: false },
+  taxRate: { type: Number }
 
 });
 

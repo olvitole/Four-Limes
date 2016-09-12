@@ -13,4 +13,16 @@ function AdminController(Product, $resource, $state) {
 
   this.new = {};
 
+  // Delete an order
+  this.delete = function(order) {
+    console.log('deleting ', order);
+    order.$delete(function() {
+      $state.reload();
+    });
+  }
+
+  this.addProduct = function() {
+    // console.log("Going to addProduct page");
+    $state.go('newProduct');
+  }
 }

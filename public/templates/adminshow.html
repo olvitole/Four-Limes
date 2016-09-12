@@ -1,0 +1,53 @@
+<h1>Admin Order Show Page</h1>
+<!-- {{ adminShow.selected }} -->
+<br>
+<h5>Order #: {{ adminShow.selected._id }}</h5>
+<p>Date of Order: {{ adminShow.selected.createdAt | date:'medium' }}</p>
+
+<div class="table-responsive">
+  <table class="table table-sm table-bordered table-striped">
+    <thead>Items:
+        <tr>
+          <th>Quantity</th>
+          <th>Product Name - Type</th>
+          <th>Pack Size</th>
+          <th>Item Total inc VAT(if any)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in adminShow.selected.items">
+          <th scope="row">{{ item.quantity }}</th>
+          <td>{{ item.product.itemName }} - {{ item.product.type }}</td>
+          <td>{{ item.product.packSize }}</td>
+          <td>{{ item.total }}</td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row">Subtotal</th>
+          <td>-</td>
+          <td>-</td>
+          <td>{{ adminShow.selected.subTotal }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Shipping</th>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <th scope="row">Tax</th>
+          <td>-</td>
+          <td>-</td>
+          <td>{{ adminShow.selected.tax }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Total</th>
+          <td>-</td>
+          <td>-</td>
+          <td>{{ adminShow.selected.grandTotal }}</td>
+        </tr>
+      </tbody>
+  </table>
+</div>

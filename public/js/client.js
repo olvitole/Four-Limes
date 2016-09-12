@@ -36,11 +36,31 @@ function Router($stateProvider, $urlRouterProvider) {
       controller: "StoreController as store"
     })
 
+    .state('productShow', {
+      url: '/store/:id',
+      templateUrl: '/templates/storeproductshow.html',
+      controller: "StoreProductShowController as productShow"
+    })
+
     .state('admin', {
       url: '/admin',
       templateUrl: '/templates/admin.html',
       controller: "AdminController as admin"
     })
+
+    .state('newProduct', {
+      url: '/adminnewproduct',
+      templateUrl: '/templates/adminnewproduct.html',
+      controller: "ProductsCreateController as addProduct"
+    })
+
+    .state('orderShow', {
+      url: '/admin/:id',
+      templateUrl: '/templates/adminshow.html',
+      controller: "AdminShowController as adminShow"
+    })
+
+         
 
   $urlRouterProvider.otherwise("/");
 }

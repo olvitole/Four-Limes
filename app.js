@@ -11,6 +11,8 @@ var port = process.env.PORT || 3000;
 
 var routes = require('./config/routes');
 
+mongoose.Promise = require('bluebird');
+
 var databaseUri = require('./config/db')(environment);
 mongoose.connect(databaseUri);
 

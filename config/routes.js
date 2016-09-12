@@ -37,6 +37,11 @@ router.route('/orders')
   .get(ordersController.index)
   .post(ordersController.create);
 
+router.route('/orders/:id')
+  .get(ordersController.show)
+  .delete(ordersController.delete);
+
+
 router.route('/users')
   .all(secureRoute)
   .get(usersController.index)

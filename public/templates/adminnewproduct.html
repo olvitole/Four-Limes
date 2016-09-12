@@ -1,0 +1,30 @@
+<!-- ProductCreateController as addProduct -->
+
+<h3>Add a product to the store</h3>
+
+<form ng-submit="addProduct.create()">
+  <input type="text" name="itemName" ng-model="addProduct.new.itemName" placeholder="Name of product">
+  <br>
+  <input type="text" name="type" ng-model="addProduct.new.type" placeholder="Type of product">
+  <br>
+  <input type="number" step=0.01 name="price" ng-model="addProduct.new.price" placeholder="price">
+  <br>
+
+  <label for="shortDescription">Short description: (Seen on the main shopping page)</label>
+      <textarea class="form-control" id="shortDescription" rows="3"></textarea>
+  <br>
+
+  <label for="longDescription">Long description: (Seen on the item description page)</label>
+      <textarea class="form-control" id="longDescription" rows="5"></textarea>
+  <br>
+
+  <input type="number" name="quantityAvail" ng-model="addProduct.new.quantityAvail" placeholder="Quantity of product">
+  <br>
+  <input type="text" name="packSize" ng-model="addProduct.new.packSize" placeholder="Pack Size of product">
+  <br>
+  <input type="number" name="taxRate" ng-model="addProduct.new.taxRate" placeholder="Tax Rate for item">
+  <br>
+  <br>
+
+  <button type="submit" class="btn btn-primary">Add Product</button>
+</form>

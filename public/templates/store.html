@@ -24,7 +24,7 @@
             <img ng-src="{{ product.image }}" alt="{{ product.itemName }} image">
             <div class="card-block">
               <p class="card-text">{{ product.shortDescription }}</p>
-              <a href="#" class="card-link">More Details...</a>
+              <a ui-sref="productShow({ id: product._id })" class="card-link">More Details...</a>
               <ngcart-addtocart id="{{ product._id }}" name="{{ product.itemName }}" price="{{ product.price }}" quantity="1" quantity-max="{{ product.quantityAvail }}">Add to Basket</ngcart-addtocart>
             </div>
           </div>
@@ -42,7 +42,7 @@
 <hr/>
 <!-- Products as cards END -->
 
-<<!-- div ng-controller="ProductsController as mainProductsArray">
+<!-- div ng-controller="ProductsController as mainProductsArray">
 <div ng-repeat="productsArray in mainProductsArray">
   <div class="row" ng-repeat="product in productsArray">
     <div class="col-xs-6 col-sm-3">

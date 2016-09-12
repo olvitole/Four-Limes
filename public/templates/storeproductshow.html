@@ -1,0 +1,17 @@
+
+<img ng-src="{{ productShow.selected.image }}">
+<h1>{{ productShow.selected.itemName }}</h1>
+<h3>Type: {{ productShow.selected.type }}</h3>
+
+<h3>Price:</h3><h2>£{{ productShow.selected.price }}</h2>
+
+<p>{{ productShow.selected.longDescription }}</p>
+
+<h3>Pack size: {{ productShow.selected.packSize }}</h3>
+
+<!-- <h1>{{ productShow }}</h1> -->
+
+<ngcart-addtocart id="{{ productShow.selected._id }}" name="{{ productShow.selected.itemName }}" price="{{ productShow.selected.price }}" quantity="1" quantity-max="8">Add to Basket</ngcart-addtocart>
+
+<button ui-sref="store">Back to Store</button>
+

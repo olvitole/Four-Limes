@@ -10,7 +10,4 @@ function ProductsController(Product, $resource, $state) {
   });
 
   this.all = Product.query();
-
-  this.new = {};
-
 }
