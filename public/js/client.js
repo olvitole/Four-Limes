@@ -42,6 +42,12 @@ function Router($stateProvider, $urlRouterProvider) {
       controller: "StoreProductShowController as productShow"
     })
 
+    .state('modal', {
+      url: '/modal',
+      templateUrl: '/templates/modal.html',
+      controller: "StoreController as store"
+    })
+
     .state('admin', {
       url: '/admin',
       templateUrl: '/templates/admin.html',

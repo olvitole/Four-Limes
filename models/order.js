@@ -45,10 +45,17 @@ orderSchema.virtual('tax')
     }, 0);
   });
 
+orderSchema.virtual('shipping')
+  .get(function() {
+    return 5.99;
+  });
+
 orderSchema.virtual('grandTotal')
   .get(function() {
-    return this.subTotal + this.tax;
+    return this.subTotal + this.tax + this.shipping;
   });
+
+
 
 orderSchema.set('toJSON', { virtuals: true });
 

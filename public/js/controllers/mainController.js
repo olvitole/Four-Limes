@@ -2,9 +2,9 @@ angular
   .module("AngularApp")
   .controller("mainController", mainController);
 
-mainController.$inject = ["TokenService", '$state', '$rootScope'];
+mainController.$inject = ["TokenService", '$state', '$rootScope', 'ngCart'];
 
-function mainController(TokenService, $state, $rootScope) {
+function mainController(TokenService, $state, $rootScope, ngCart) {
   var self = this;
   this.currentUser = TokenService.decodeToken();
 
@@ -20,7 +20,7 @@ function mainController(TokenService, $state, $rootScope) {
 
   $rootScope.$on("unauthorized", function() {
       $state.go("login");
-      self.errorMessage = "Ah, Ah, Aaaah. You're not getting in here!";
+      self.errorMessage = "Ah, Ah, Aaaah. You're not getting in here without logging in first. (I don't set the rules I only enforce them)";
   });
 
   $rootScope.$on("$stateChangeStart", function() {

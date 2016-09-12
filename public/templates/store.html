@@ -1,6 +1,6 @@
 <h2>Store</h2>
 <div class="container">
-<div class="row">
+<!-- <div class="row">
   <div class="col-xs-offset-8 col-xs-4">
     <h3>Summary <span>(ngcart-summary)</span></h3>    
       <ngcart-summary></ngcart-summary>
@@ -8,8 +8,8 @@
 </div>
 
 <hr />
-
-<h3>Add to Cart <span>(ngcart-addtocart)</span></h3>
+ -->
+<!-- <h3>Add to Cart <span>(ngcart-addtocart)</span></h3> -->
 <!-- Products as cards -->
 <div ng-controller="ProductsController as mainProductsArray">
   <div ng-repeat="productsArray in mainProductsArray">
@@ -70,14 +70,14 @@
 
 <div class="row">
     <div class="col-md-12">  
-      <h3>Checkout <span> (ngcart-checkout)</span></h3>
+      <h3>Checkout <!-- <span> (ngcart-checkout)</span> --></h3>
         <div class="row">
           <!-- <div class="col-xs-4">
               <h4>service 'log'</h4>
               <ngcart-checkout service="log">Checkout</ngcart-checkout>
           </div> -->
           <div class="col-xs-4">
-              <h4>service 'http'</h4>
+              <!-- <h4>service 'http'</h4> -->
              <!--  <ngcart-checkout service="http" settings="{ url: 'http://localhost:3000/api/orders' }">Checkout to API </ngcart-checkout> -->
              <ngcart-checkout service="http" settings="{ url: 'http://localhost:3000/api/orders' }">Will's Checkout</ngcart-checkout>
           </div>

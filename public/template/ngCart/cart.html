@@ -8,8 +8,8 @@
 
         <thead>
         <tr>
-            <th></th>
-            <th></th>
+            <th>Remove</th>
+            <th>Item</th>
             <th>Quantity</th>
             <th>Amount</th>
             <th>Total</th>
@@ -40,13 +40,13 @@
         </tfoot>
         <tbody>
         <tr ng-repeat="item in ngCart.getCart().items track by $index">
-            <td><span ng-click="ngCart.removeItemById(item.getId())" class="glyphicon glyphicon-remove"></span></td>
+            <td><span ng-click="ngCart.removeItemById(item.getId())" class="glyphicon glyphicon-remove">X</span></td>
 
             <td>{{ item.getName() }}</td>
             <td><span class="glyphicon glyphicon-minus" ng-class="{'disabled':item.getQuantity()==1}"
-                      ng-click="item.setQuantity(-1, true)"></span>&nbsp;&nbsp;
+                      ng-click="item.setQuantity(-1, true)">-</span>&nbsp;&nbsp;
                 {{ item.getQuantity() | number }}&nbsp;&nbsp;
-                <span class="glyphicon glyphicon-plus" ng-click="item.setQuantity(1, true)"></span></td>
+                <span class="glyphicon glyphicon-plus" ng-click="item.setQuantity(1, true)">+</span></td>
             <td>{{ item.getPrice() | currency: ngCart.getCurrency() }}</td>
             <td>{{ item.getTotal() | currency: ngCart.getCurrency() }}</td>
         </tr>

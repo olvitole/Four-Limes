@@ -46,7 +46,7 @@ User.create([
       quantityAvail: 50,
       packSize: "6 apples",
       onSpecial: false,
-      taxRate: 1.10
+      taxRate: 0
     }, {
       itemName: "Apples",
       image: "https://assets.riverford.co.uk/live/media/catalog/product/cache/1/image/262x/9df78eab33525d08d6e5fb8d27136e95/a/p/apples-cooking262.jpg",
@@ -57,7 +57,7 @@ User.create([
       quantityAvail: 15,
       packSize: "6 apples",
       onSpecial: false,
-      taxRate: 1.15
+      taxRate: 0
     }, {
       itemName: "Apples",
       image: "https://assets.riverford.co.uk/live/media/catalog/product/cache/1/image/262x/9df78eab33525d08d6e5fb8d27136e95/a/p/apples-cooking262.jpg",
@@ -68,7 +68,7 @@ User.create([
       quantityAvail: 10,
       packSize: "8 apples",
       onSpecial: false,
-      taxRate: 1
+      taxRate: 0
     }, {
       itemName: "Apples",
       image: "https://assets.riverford.co.uk/live/media/catalog/product/cache/1/image/262x/9df78eab33525d08d6e5fb8d27136e95/a/p/apples-cooking262.jpg",
@@ -79,7 +79,7 @@ User.create([
       quantityAvail: 5,
       packSize: "6 apples",
       onSpecial: false,
-      taxRate: 1
+      taxRate: 0
     }, {
       itemName: "Bananas",
       image: "https://assets.riverford.co.uk/live/media/catalog/product/cache/1/image/262x/9df78eab33525d08d6e5fb8d27136e95/f/i/finbanbag1500.jpg",
@@ -90,7 +90,7 @@ User.create([
       quantityAvail: 44,
       packSize: "6 apples",
       onSpecial: false,
-      taxRate: 1.4
+      taxRate: 0
     },
       ], function(err, fruit, product) {
     console.log(users.length + " users created!");
