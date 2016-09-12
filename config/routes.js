@@ -35,7 +35,7 @@ router.route('/product/:id')
 router.route('/orders')
   //.all(secureRoute)         COMMENTED OUT FOR TESTING
   .get(ordersController.index)
-  .post(ordersController.create);
+  .post(secureRoute, ordersController.create);
 
 router.route('/orders/:id')
   .get(ordersController.show)

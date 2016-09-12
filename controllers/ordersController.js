@@ -1,9 +1,11 @@
 var Order = require('../models/order');
+var User = require('../models/user');
+var email = require('../config/email');
 
 // ORDERS INDEX
 function ordersIndex(req, res) {
   Order.find()
-    .populate('items.product')
+    .populate('items.product user')
     .then(function(orders) {
       return res.status(200).json(orders);
     })
@@ -17,6 +19,8 @@ function ordersCreate(req, res) {
 
   var order = req.body.data;
 
+  order.user = req.user._id;
+
   order.items = order.items.map(function(item) {
     return {
       product: item.id,
@@ -24,10 +28,26 @@ function ordersCreate(req, res) {
     }
   });
 
-  Order.create(order, function(err, order) {
-    if(err) return res.status(400).json(err);
-    return res.status(201).json(order);
-  });
+  Order.create(order)
+    .then(function(order) {
+
+      return User.findById(req.user._id)
+        .then(function(user) {
+          return email.sendMail({
+            to: user.email,
+            from: process.env.GMAIL_ID,
+            subject: "Your Delivery from FourLimes",
+            text: "Thanks for your order, ya legend!"
+          });
+        })
+        .then(function(info) {
+          return res.status(200).json(order);
+        });
+    })
+    .catch(function(err) {
+      console.log(err);
+      return res.status(400).json(err);
+    });
 }
 
 // SHOW (Show one order)

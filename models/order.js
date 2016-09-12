@@ -7,7 +7,8 @@ var orderSchema = new mongoose.Schema({
     quantity: { type: Number },
     total: { type: Number },
     taxRate: { type: Number }
-  }]
+  }],
+  user: { type: mongoose.Schema.ObjectId, ref: 'User' }
 },{
   timestamps: true
 });

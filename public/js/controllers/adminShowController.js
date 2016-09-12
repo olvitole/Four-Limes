@@ -9,4 +9,5 @@ function AdminShowController(Order, Product, $resource, $state) {
 
   this.selected = Order.get( $state.params );
   // console.log($state.params);
+
 }

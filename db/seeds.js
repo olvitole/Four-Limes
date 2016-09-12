@@ -29,7 +29,7 @@ User.create([
     isAdmin: false
   },{
     firstName: "will",
-    email: "will@will.com",
+    email: process.env.GMAIL_WILL,
     password: "password",
     passwordConfirmation: "password",
     isAdmin: true
