@@ -5,6 +5,7 @@ var usersController = require('../controllers/users');
 var authController = require('../controllers/authentications');
 var ordersController = require('../controllers/ordersController');
 var productsController = require('../controllers/productsController');
+var paymentController = require('../controllers/paymentController');
 
 function secureRoute(req, res, next) {
   if(!req.headers.authorization) 
@@ -19,6 +20,8 @@ function secureRoute(req, res, next) {
     next();
   });
 }
+router.route('/payment')
+  .post(paymentController.payment);
 
 router.route('/product')
   .all(secureRoute)

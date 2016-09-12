@@ -3,32 +3,9 @@
 <ngcart-cart></ngcart-cart>
 
 <hr/>
-<!-- Products as cards END -->
 
-<!-- div ng-controller="ProductsController as mainProductsArray">
-<div ng-repeat="productsArray in mainProductsArray">
-  <div class="row" ng-repeat="product in productsArray">
-    <div class="col-xs-6 col-sm-3">
-      <p>{{ product }}</p>
-      <h4>{{ product.itemName }}</h4>
-      <p> {{ product.price }} </p>
-      <ngcart-addtocart id="{{ product._id }}" name="{{ product.itemName }}" price="{{ product.price }}" quantity="1" quantity-max="{{ product.quantityAvail }}">Add to Cart</ngcart-addtocart>
-    </div> -->
-    <!-- <div class="col-xs-6 col-sm-3">
-      <h4>My Item #2</h4>
-      <p> $15.29</p>
-      <ngcart-addtocart id="item2" name="My Item #2" price="15.29" quantity="1" quantity-max="5">Add to Cart</ngcart-addtocart>
-    </div>
-    <div class="col-xs-6 col-sm-3">
-      <h4>My Item #3</h4>
-      <p> $25.75</p>
-      <ngcart-addtocart id="item3" name="My Item #3" price="25.75" quantity="3" quantity-max="10">Add to Cart</ngcart-addtocart>
-    </div>
-    <div class="col-xs-6 col-sm-3">
-      <h4>My Item #4</h4>
-      <p> $29.25</p>
-      <ngcart-addtocart id="item4" name="My Item #4" price="29.25" quantity="1" quantity-max="10">Add to Cart</ngcart-addtocart>        
-    </div> -->
+<button ui-sref="payment">Make Payment</button>
+
 <div>
   <ngcart-checkout service="http" settings="{ url: 'http://localhost:3000/api/orders' }">Checkout</ngcart-checkout>
 </div>

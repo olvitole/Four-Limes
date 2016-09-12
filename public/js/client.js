@@ -1,6 +1,9 @@
 angular
   .module('AngularApp', ["ngResource", 'ui.router', 'angular-jwt', 'ngCart'])
   .constant("API_URL", "http://localhost:3000/api")
+  .config(function() {
+    Stripe.setPublishableKey('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
+  })
   .config(Router)
   .config(setupInterceptor);
 
@@ -46,6 +49,12 @@ function Router($stateProvider, $urlRouterProvider) {
       url: '/cart',
       templateUrl: '/templates/cart.html',
       controller: "StoreController as store"
+    })
+
+    .state('payment', {
+      url: '/cart/payment',
+      templateUrl: '/templates/paymentform.html',
+      controller: "PaymentController as payment"
     })
 
     .state('modal', {
