@@ -36,9 +36,9 @@ router.route('/product/:id')
   .delete(productsController.delete);
 
 router.route('/orders')
-  //.all(secureRoute)         COMMENTED OUT FOR TESTING
+  .all(secureRoute)    
   .get(ordersController.index)
-  .post(secureRoute, ordersController.create);
+  .post(ordersController.create);
 
 router.route('/orders/:id')
   .get(ordersController.show)

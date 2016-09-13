@@ -16,7 +16,7 @@ function ordersIndex(req, res) {
 
 // ORDERS CREATE
 function ordersCreate(req, res) {
-
+  console.log('ordersCreate running');
   var order = req.body.data;
 
   order.user = req.user._id;
@@ -31,9 +31,12 @@ function ordersCreate(req, res) {
 
   Order.create(order)
     .then(function(order) {
-
+      // console.log("r.u", req.user._id); //PASSED
       return User.findById(req.user._id)
         .then(function(user) {
+          // console.log("2", req.user._id); //PASSED
+          console.log("3", order);
+          console.log(user);
           return email.sendMail({
             to: user.email,
             from: process.env.GMAIL_ID,

@@ -36,13 +36,15 @@ orderSchema.pre('save', function(next) {
 orderSchema.virtual('subTotal')
   .get(function() {
     return this.items.reduce(function(prev, current) {
-      return prev + current.total;
+      var w = (parseFloat(prev) + current.total);
+      return w.toFixed(2);
     }, 0);
   });
 
 orderSchema.virtual('tax')
   .get(function() {
     return this.items.reduce(function(prev, current) {
+      // var roundedTax = Math.round(current.taxRate * 10);
       return prev + current.total * current.taxRate;
     }, 0);
   });
@@ -54,10 +56,9 @@ orderSchema.virtual('shipping')
 
 orderSchema.virtual('grandTotal')
   .get(function() {
-    var t = this.subTotal + this.tax + this.shipping; 
+    var t = (parseFloat(this.subTotal)) + this.tax + this.shipping; 
     return t.toFixed(2);
   });
-
 
 
 orderSchema.set('toJSON', { virtuals: true });
