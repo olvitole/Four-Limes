@@ -20,6 +20,7 @@ function ordersCreate(req, res) {
   var order = req.body.data;
 
   order.user = req.user._id;
+  order.isPaid = false;
 
   order.items = order.items.map(function(item) {
     return {
@@ -41,7 +42,9 @@ function ordersCreate(req, res) {
           });
         })
         .then(function(info) {
+          console.log(order);
           return res.status(200).json(order);
+
         });
     })
     .catch(function(err) {
@@ -63,6 +66,14 @@ function orderShow(req, res) {
     });
 }
 
+// ORDERS UPDATE
+function ordersUpdate(req, res) {
+  Order.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true}, function(err, order) { 
+      if(err) return res.status(400).json(err);
+      return res.status(200).json(order);
+    });
+}
+
 // ORDERS DELETE
 function ordersDelete(req, res) {
   Order.findByIdAndRemove(req.params.id, function(err) {
@@ -75,5 +86,6 @@ module.exports = {
   index: ordersIndex,
   create: ordersCreate,
   delete: ordersDelete,
-  show: orderShow
+  show: orderShow,
+  update: ordersUpdate
 }

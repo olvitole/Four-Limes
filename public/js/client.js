@@ -5,11 +5,17 @@ angular
     Stripe.setPublishableKey('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
   })
   .config(Router)
-  .config(setupInterceptor);
+  .config(setupInterceptor)
+  .config(setupOrderInterceptor);
 
 setupInterceptor.$inject = ["$httpProvider"];
 function setupInterceptor($httpProvider) {
   return $httpProvider.interceptors.push("AuthInterceptor");
+}
+
+setupOrderInterceptor.$inject = ["$httpProvider"];
+function setupOrderInterceptor($httpProvider) {
+  return $httpProvider.interceptors.push("OrderInterceptor");
 }   
 
 Router.$inject = ["$stateProvider", '$urlRouterProvider'];

@@ -34,6 +34,7 @@
   <script src="/js/models/products.js"></script>
   <script src="/js/models/orders.js"></script>
 
+  <script src="/js/services/orderInterceptor.js"></script>
   <script src="/js/services/authInterceptor.js"></script>
   <script src="/js/services/tokenServices.js"></script>  
 
@@ -49,9 +50,9 @@
   <nav class="navbar navbar-light bg-faded">
     <a class="navbar-brand" ui-sref="home">Four*Limes</a>
     <ul class="nav navbar-nav">
-      <li class="nav-item" ui-sref-active="active">
+     <!--  <li class="nav-item" ui-sref-active="active">
         <a class="nav-link" ui-sref="home">Home</a>
-      </li>
+      </li> -->
       <li class="nav-item" ui-sref-active="active" ng-if="!main.currentUser">
         <a class="nav-link" ui-sref="register">Register</a>
       </li>
@@ -71,7 +72,7 @@
         <a ui-sref="modal" class="nav-link">Modal</a>
       </li>
     </ul>
-      <a ui-sref="cart"><ngcart-summary></ngcart-summary></a>
+      <a ng-show="main.currentUser" ui-sref="cart"><ngcart-summary></ngcart-summary></a>
   </nav>
   
   <div class="container" ng-if="main.errorMessage">
@@ -81,8 +82,17 @@
       </button>{{ main.errorMessage }}
       </div>
   </div>
+  <div class="container" ng-if="main.paymentMessage">
+     <div class="alert alert-success alert-dismissible fade in" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="alert-heading">Wicked! Your payment was a {{ main.paymentMessage }}</h4>
+    <p class="m-b-0">Your payment was successful, you will receive an email shortly with your delivery details.</p>
+    </div>
+  </div>
     
-  <main ui-view></main>
+  <main ui-view class="container"></main>
   
 </body>
 </html>

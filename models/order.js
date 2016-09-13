@@ -8,7 +8,8 @@ var orderSchema = new mongoose.Schema({
     total: { type: Number },
     taxRate: { type: Number }
   }],
-  user: { type: mongoose.Schema.ObjectId, ref: 'User' }
+  user: { type: mongoose.Schema.ObjectId, ref: 'User' },
+  isPaid: { type: Boolean, default: false }
 },{
   timestamps: true
 });
@@ -53,7 +54,8 @@ orderSchema.virtual('shipping')
 
 orderSchema.virtual('grandTotal')
   .get(function() {
-    return this.subTotal + this.tax + this.shipping;
+    var t = this.subTotal + this.tax + this.shipping; 
+    return t.toFixed(2);
   });
 
 

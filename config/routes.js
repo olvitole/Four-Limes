@@ -42,8 +42,8 @@ router.route('/orders')
 
 router.route('/orders/:id')
   .get(ordersController.show)
+  .patch(ordersController.update)
   .delete(ordersController.delete);
-
 
 router.route('/users')
   .all(secureRoute)

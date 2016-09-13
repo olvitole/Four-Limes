@@ -9,7 +9,7 @@ function LoginController(User, $state, $rootScope) {
 
   this.submit = function submit() {
     User.login(this.credentials, function(res) {
-      console.log(res);
+      //console.log(res);
       $state.go('store');
       $rootScope.$broadcast("loggedIn");
     });

@@ -3,9 +3,10 @@
 <ngcart-cart></ngcart-cart>
 
 <hr/>
-
-<button ui-sref="payment">Make Payment</button>
+<h1>Order: {{ store.currentOrder }}</h1>
+<!-- <button ui-sref="payment">Make Payment</button> -->
+<!-- ui-sref="orderShow({ id: order._id }) -->
 
 <div>
-  <ngcart-checkout service="http" settings="{ url: 'http://localhost:3000/api/orders' }">Checkout</ngcart-checkout>
+  <ngcart-checkout service="http" settings="{ url: '/api/orders' }">Checkout</ngcart-checkout>
 </div>

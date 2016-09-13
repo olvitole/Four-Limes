@@ -4,7 +4,6 @@ var morgan = require('morgan');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var cors = require('cors');
-var stripe = require("stripe")("sk_test_BQokikJOvBiI2HlWgH4olfQ2");
 
 var environment = app.get('env');
 var port = process.env.PORT || 3000;

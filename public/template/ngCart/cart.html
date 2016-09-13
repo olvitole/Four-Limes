@@ -23,19 +23,19 @@
             <td>Tax ({{ ngCart.getTaxRate() }}%):</td>
             <td>{{ ngCart.getTax() | currency: ngCart.getCurrency() }}</td>
         </tr>
-        <tr ng-show="ngCart.getShipping()">
+        <tr>
             <td></td>
             <td></td>
             <td></td>
             <td>Shipping:</td>
-            <td>{{ ngCart.getShipping() | currency: ngCart.getCurrency() }}</td>
+            <td>£5.99</td>
         </tr>
         <tr>
             <td></td>
             <td></td>
             <td></td>
             <td>Total:</td>
-            <td>{{ ngCart.totalCost() | currency: ngCart.getCurrency() }}</td>
+            <td>{{ 5.99 + ngCart.totalCost() | currency: ngCart.getCurrency() }}</td>
         </tr>
         </tfoot>
         <tbody>

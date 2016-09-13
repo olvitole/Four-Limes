@@ -15,7 +15,7 @@ function AdminController(Product, $resource, $state) {
 
   // Delete an order
   this.delete = function(order) {
-    console.log('deleting ', order);
+    //console.log('deleting ', order);
     order.$delete(function() {
       $state.reload();
     });

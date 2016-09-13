@@ -10,3 +10,7 @@ h3 span {font-size:14px; display:block;}
 span[ng-click] {
         cursor: pointer;
     }
+
+.formSpacing {
+  margin: 20px;
+}
