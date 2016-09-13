@@ -18,7 +18,7 @@ function ordersIndex(req, res) {
 function ordersCreate(req, res) {
   console.log('ordersCreate running');
   var order = req.body.data;
-
+  console.log("req.user", req.user);
   order.user = req.user._id;
   order.isPaid = false;
 

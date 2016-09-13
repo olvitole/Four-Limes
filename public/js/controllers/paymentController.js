@@ -4,8 +4,8 @@ angular
   .module("AngularApp")
   .controller('PaymentController', PaymentController);
 
-PaymentController.$inject = ['$http', 'API_URL', "Order", "User", "$rootScope", "$state"];
-function PaymentController($http, API_URL, Order, User, $rootScope, $state) {
+PaymentController.$inject = ['$http', "Order", "User", "$rootScope", "$state"];
+function PaymentController($http, Order, User, $rootScope, $state) {
   var self = this;
 
   self.card = {};
@@ -32,7 +32,7 @@ function PaymentController($http, API_URL, Order, User, $rootScope, $state) {
       };
     
       $http
-        .post(API_URL + '/payment', data)
+        .post('/api/payment', data)
         .then(function(res) {
           // if(res.status === 200) {
           if(res.status === 200) {
@@ -58,7 +58,7 @@ function PaymentController($http, API_URL, Order, User, $rootScope, $state) {
     };
 
     $http
-      .patch(API_URL + '/orders/' + self.orderId, updatedData)
+      .patch('/api/orders/' + self.orderId, updatedData)
       .then(function(res){
         if(res.status === 200) {
           console.log("Order was updated to 'PAID'");

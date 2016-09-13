@@ -20,6 +20,7 @@ function secureRoute(req, res, next) {
     next();
   });
 }
+
 router.route('/payment')
   .post(paymentController.payment);
 

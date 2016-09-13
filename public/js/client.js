@@ -1,6 +1,5 @@
 angular
   .module('AngularApp', ["ngResource", 'ui.router', 'angular-jwt', 'ngCart'])
-  .constant("API_URL", "http://localhost:3000/api")
   .config(function() {
     Stripe.setPublishableKey('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
   })
