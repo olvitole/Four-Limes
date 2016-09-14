@@ -2,15 +2,15 @@ angular
   .module("AngularApp")
   .controller("AdminController", AdminController);
 
-AdminController.$inject = ["Product", '$resource', '$state']
-function AdminController(Product, $resource, $state) {
+AdminController.$inject = ["Product", '$resource', '$state', 'Order']
+function AdminController(Product, $resource, $state, Order) {
   var self = this;
 
-  var Orders = $resource('http://localhost:3000/api/orders/:id', {id: '@_id'}, { 'update': { method: 'PUT' }
-  });
+  // var Orders = $resource('http://localhost:3000/api/orders/:id', {id: '@_id'}, { 'update': { method: 'PUT' }
+  // });
 
-  this.all = Orders.query();
-
+  this.all = Order.query();
+  // this.allProducts = Product.query();
   this.new = {};
 
   // Delete an order
@@ -20,7 +20,7 @@ function AdminController(Product, $resource, $state) {
       $state.reload();
     });
   }
-
+  // Add a Product
   this.addProduct = function() {
     // console.log("Going to addProduct page");
     $state.go('newProduct');

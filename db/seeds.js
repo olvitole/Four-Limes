@@ -10,35 +10,62 @@ Product.collection.drop();
 
 User.create([
   {
-    firstName: "mickyginger",
+    firstName: "Micky",
+    lastName: "Ginger",
     email: "mike.hayden@ga.co",
     password: "password",
     passwordConfirmation: "password",
+    buildingNumber: "1",
+    addressLine1: "The Relay Building",
+    addressLine2: "Commercial Street",
+    addressLine3: "London" ,
+    postCode: "E1 7PT",
+    contactPh: "020 3308 9506",
     isAdmin: false
   },{
     firstName: "roro",
+    lastName: "Rossington",
     email: "rosanna.rossington@ga.co",
     password: "password",
     passwordConfirmation: "password",
+    buildingNumber: "1",
+    addressLine1: "The Relay Building",
+    addressLine2: "Commercial Street",
+    addressLine3: "London" ,
+    postCode: "E1 7PT",
+    contactPh: "020 3308 9506",
     isAdmin: false
   },{
-    firstName: "chansec",
+    firstName: "Chanse",
+    lastName: "Campbell",
     email: "chanse.campbell@ga.co",
     password: "password",
     passwordConfirmation: "password",
+    buildingNumber: "1",
+    addressLine1: "The Relay Building",
+    addressLine2: "Commercial Street",
+    addressLine3: "London" ,
+    postCode: "E1 7PT",
+    contactPh: "020 3308 9506",
     isAdmin: false
   },{
-    firstName: "will",
+    firstName: "Will",
     email: process.env.GMAIL_WILL,
     password: "password",
     passwordConfirmation: "password",
+    buildingNumber: "1",
+    addressLine1: "The Relay Building",
+    addressLine2: "Commercial Street",
+    addressLine3: "London" ,
+    postCode: "E1 7PT",
+    contactPh: "020 3308 9506",
     isAdmin: true
   }
 ], function(err, users) {
   Product.create([
     {
       itemName: "Apples",
-      image: "https://assets.riverford.co.uk/live/media/catalog/product/cache/1/image/262x/9df78eab33525d08d6e5fb8d27136e95/a/p/apples-cooking262.jpg",
+      image: "https://assets.riverford.co.uk/live/media/catalog/product/cache/1/image/262x/9df78eab33525d08d6e5fb8d27136e95/a/p/red_apple.jpg",
       type: "Jazz",
       price: 1.39,
       shortDescription: "Short description goes here...",
@@ -49,7 +76,7 @@ User.create([
       taxRate: 0.00
     }, {
       itemName: "Apples",
-      image: "https://assets.riverford.co.uk/live/media/catalog/product/cache/1/image/262x/9df78eab33525d08d6e5fb8d27136e95/a/p/apples-cooking262.jpg",
+      image: "https://assets.riverford.co.uk/live/media/catalog/product/cache/1/image/262x/9df78eab33525d08d6e5fb8d27136e95/a/p/red_apple2.jpg",
       type: "Cox",
       price: 2.19,
       shortDescription: "Short description goes here...",
@@ -60,7 +87,7 @@ User.create([
       taxRate: 0.00
     }, {
       itemName: "Apples",
-      image: "https://assets.riverford.co.uk/live/media/catalog/product/cache/1/image/262x/9df78eab33525d08d6e5fb8d27136e95/a/p/apples-cooking262.jpg",
+      image: "https://assets.riverford.co.uk/live/media/catalog/product/cache/1/image/262x/9df78eab33525d08d6e5fb8d27136e95/a/p/red_apple2.jpg",
       type: "Bramley",
       price: 2.19,
       shortDescription: "Short description goes here...",
@@ -71,7 +98,7 @@ User.create([
       taxRate: 0.00
     }, {
       itemName: "Apples",
-      image: "https://assets.riverford.co.uk/live/media/catalog/product/cache/1/image/262x/9df78eab33525d08d6e5fb8d27136e95/a/p/apples-cooking262.jpg",
+      image: "https://assets.riverford.co.uk/live/media/catalog/product/cache/1/image/262x/9df78eab33525d08d6e5fb8d27136e95/a/p/red_apple.jpg",
       type: "Gala",
       price: 2.19,
       shortDescription: "Short description goes here...",
@@ -82,7 +109,7 @@ User.create([
       taxRate: 0.00
     }, {
       itemName: "Bananas",
-      image: "https://assets.riverford.co.uk/live/media/catalog/product/cache/1/image/262x/9df78eab33525d08d6e5fb8d27136e95/f/i/finbanbag1500.jpg",
+      image: "https://assets.riverford.co.uk/live/media/catalog/product/cache/1/image/262x/9df78eab33525d08d6e5fb8d27136e95/f/i/banana.jpg",
       type: "Cavendish",
       price: 0.99,
       shortDescription: "Short description goes here...",

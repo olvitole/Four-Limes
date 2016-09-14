@@ -3,9 +3,16 @@ var bcrypt = require('bcrypt');
 
 var userSchema = new mongoose.Schema({
   firstName: { type: String },
+  lastName: { type: String },
   email: { type: String, required: true },
   passwordHash: { type: String, required: true },
-  isAdmin: { type: Boolean, default: false } 
+  buildingNumber: { type: String },
+  addressLine1: { type: String },
+  addressLine2: { type: String },
+  addressLine3: { type: String },
+  postCode: { type: String },
+  contactPh: { type: String},
+  isAdmin: { type: Boolean, default: false }
 });
 
 userSchema.set('toJSON', {

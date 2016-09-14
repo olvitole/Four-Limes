@@ -1,8 +1,12 @@
 <h2>Register</h2>
 
 <form ng-submit="register.submit()">
+  <h6>Login Details:</h6>
   <div class="form-group">
     <input type="text" name="firstname" class="form-control" ng-model="register.user.firstName" placeholder="First name">
+  </div>
+  <div class="form-group">
+    <input type="text" name="lastname" class="form-control" ng-model="register.user.lastName" placeholder="Last name">
   </div>
   <div class="form-group">
     <input type="email" name="email" class="form-control" ng-model="register.user.email" placeholder="Email">
@@ -12,6 +16,28 @@
   </div>
   <div class="form-group">
     <input type="password" name="passwordConfirmation" class="form-control" ng-model="register.user.passwordConfirmation" placeholder="Password confirmation">
+  </div>
+
+  <hr>
+  <h6>Delivery Address:</h6>
+  <div class="form-group">
+    <input type="text" name="buildingNumber" class="form-control" ng-model="register.user.buildingNumber" placeholder="Building Number / Floor number">
+  </div>
+  <div class="form-group">
+    <input type="text" name="addressLine1" class="form-control" ng-model="register.user.addressLine1" placeholder="Address Line 1">
+  </div>
+  <div class="form-group">
+    <input type="text" name="addressLine2" class="form-control" ng-model="register.user.addressLine2" placeholder="Address Line 2">
+  </div>
+  <div class="form-group">
+    <input type="text" name="addressLine3" class="form-control" ng-model="register.user.addressLine3" placeholder="Address Line 3">
+  </div>
+  <div class="form-group">
+    <input type="text" name="postCode" class="form-control" ng-model="register.user.postCode" placeholder="Postcode">
+  </div>
+  <p>Contact phone number at this address:</p>
+  <div class="form-group">
+    <input type="text" name="contactPh" class="form-control" ng-model="register.user.contactPh" placeholder="Contact phone number">
   </div>
 
   <input type="submit" value="Submit" class="btn btn-primary">

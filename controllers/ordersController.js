@@ -2,6 +2,64 @@ var Order = require('../models/order');
 var User = require('../models/user');
 var email = require('../config/email');
 
+var orderNum;
+// Update to paid
+// function updateToPaid(orderNumber) {
+//   console.log(orderNum);
+//   updateOrderToPaid();
+// };
+
+// Patch Order to PAID
+function updateToPaid(req, res) {
+  // orderNum = req;
+  console.log("Order number is ", req);
+  var isPaid = { "isPaid": true };
+  Order.findByIdAndUpdate({ _id: req }, isPaid, { new: true, runValidators: true }, function(err, order) { 
+      console.log("err", err);
+      console.log("order", order);
+      console.log("res", res);
+      // WHATTTTTT?????
+      // if(err) return res.status(400).json(err);
+      // return res.status(200).json(order);
+
+      sendEmail(order);
+    });
+}
+  // Order.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true}, function(err, order) { 
+  //       if(err) return res.status(400).json(err);
+  //       return res.status(200).json(order);
+  //     });
+  // }
+  // , function(err) { 
+  //       if(err) {
+  //       
+  //        return res.status(400).json(err);
+  //      } else {
+  //       console.log("Update to paid successful");
+  //       return res.status(200).json(order);
+  //      }  
+  //     });
+
+// Send the Email
+function sendEmail(order){
+  Order.findById(order._id)
+    .populate('items.product user')
+    .then(function(order) {
+      // console.log("sendEmail order:", order);
+      console.log("Order total: ", order.grandTotal);
+      //// return email.sendMail({
+      ////   to: user.email, 
+      ////   from: process.env.GMAIL_ID,
+      ////   subject: "Your Delivery from FourLimes",
+      ////   text: "Thanks for your order, ya legend!"
+      //// });
+      // email.sendInvoiceTemplate(order.user.email, order.createdAt, order._id, order.user.firstName, order.user.lastName, order.user.buildingNumber, order.user.addressLine1, order.user.addressLine2,order.user.addressLine3, order.user.postCode, order.user.contactPh, order.grandTotal); 
+      email.sendInvoiceTemplate(order); 
+    })
+    .catch(function(err){
+      console.log(err, "call Will, something is up with the email thingy!");
+    });
+}
 // ORDERS INDEX
 function ordersIndex(req, res) {
   Order.find()
@@ -16,9 +74,9 @@ function ordersIndex(req, res) {
 
 // ORDERS CREATE
 function ordersCreate(req, res) {
-  console.log('ordersCreate running');
+  // console.log('ordersCreate running');
   var order = req.body.data;
-  console.log("req.user", req.user);
+  // console.log("req.user", req.user);
   order.user = req.user._id;
   order.isPaid = false;
 
@@ -35,14 +93,14 @@ function ordersCreate(req, res) {
       return User.findById(req.user._id)
         .then(function(user) {
           // console.log("2", req.user._id); //PASSED
-          console.log("3", order);
-          console.log(user);
-          return email.sendMail({
-            to: user.email,
-            from: process.env.GMAIL_ID,
-            subject: "Your Delivery from FourLimes",
-            text: "Thanks for your order, ya legend!"
-          });
+          // console.log("3", order);
+          // console.log(user);
+          //// return email.sendMail({
+          ////   to: user.email,
+          ////   from: process.env.GMAIL_ID,
+          ////   subject: "Your Delivery from FourLimes",
+          ////   text: "Thanks for your order, ya legend!"
+          //// });
         })
         .then(function(info) {
           console.log(order);
@@ -71,6 +129,8 @@ function orderShow(req, res) {
 
 // ORDERS UPDATE
 function ordersUpdate(req, res) {
+  // console.log("Update req", req.body);
+  // console.log("Update res", res);
   Order.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true}, function(err, order) { 
       if(err) return res.status(400).json(err);
       return res.status(200).json(order);
@@ -90,5 +150,6 @@ module.exports = {
   create: ordersCreate,
   delete: ordersDelete,
   show: orderShow,
-  update: ordersUpdate
+  update: ordersUpdate,
+  updateToPaid: updateToPaid
 }

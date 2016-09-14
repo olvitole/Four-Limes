@@ -10,6 +10,9 @@ function productIndex(req, res) {
 
 // CREATE (Add product)
 function productCreate(req, res) {
+
+  if(req.file) req.body.image = req.file.key;
+
   Product.create(req.body, function(err, product) {
     if(err) return res.status(400).json(err);
     return res.status(201).json(product);
@@ -27,6 +30,9 @@ function productShow(req, res) {
 
 // UPDATE
 function productUpdate(req, res) {
+
+  if(req.file) req.body.image = req.file.key;
+
   Product.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true}, function(err, product) {
     if(err) return res.status(400).json(err);
     return res.status(200).json(product);

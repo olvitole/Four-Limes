@@ -57,7 +57,7 @@ function Router($stateProvider, $urlRouterProvider) {
     })
 
     .state('payment', {
-      url: '/cart/payment',
+      url: '/cart/:id/payment/',
       templateUrl: '/templates/paymentform.html',
       controller: "PaymentController as payment"
     })

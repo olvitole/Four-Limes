@@ -6,6 +6,7 @@ var authController = require('../controllers/authentications');
 var ordersController = require('../controllers/ordersController');
 var productsController = require('../controllers/productsController');
 var paymentController = require('../controllers/paymentController');
+var upload = require('./upload');
 
 function secureRoute(req, res, next) {
   if(!req.headers.authorization) 
@@ -27,13 +28,13 @@ router.route('/payment')
 router.route('/product')
   .all(secureRoute)
   .get(productsController.index)
-  .post(productsController.create);
+  .post(upload.single('image'), productsController.create);
 
 router.route('/product/:id')
   .all(secureRoute)
   .get(productsController.show)
-  .put(productsController.update)
-  .patch(productsController.update)
+  .put(upload.single('image'), productsController.update)
+  .patch(upload.single('image'), productsController.update)
   .delete(productsController.delete);
 
 router.route('/orders')
@@ -43,7 +44,8 @@ router.route('/orders')
 
 router.route('/orders/:id')
   .get(ordersController.show)
-  .patch(ordersController.update)
+  .put(ordersController.update)
+  .patch(ordersController.updateToPaid)
   .delete(ordersController.delete);
 
 router.route('/users')

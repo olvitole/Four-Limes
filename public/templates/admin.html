@@ -5,7 +5,7 @@
 <ul>
   <li ng-repeat="order in admin.all">
     <button class="btn btn-secondary" ui-sref="orderShow({ id: order._id })">Detail</button>Order: {{ order._id }} - Paid: {{ order.isPaid }} 
-    <button type="button" ng-click="admin.delete(order)" class="btn btn-danger">Remove from orders list</button> 
+    <button type="button" ng-click="admin.delete(order)" class="btn btn-danger btn-sm">Remove from orders list</button> 
     <hr>
   </li>
 </ul>
@@ -14,4 +14,14 @@
 <div>
   <h5>Product Management</h5>
   <button class="btn btn-secondary" ng-click="admin.addProduct()">Add Product</button>
+  <div ng-controller="ProductsController as products">
+    <h6>Products in Store:</h6>
+
+    <ul>
+      <li ng-repeat="item in products.all">
+      <button type="button" class="btn btn-danger btn-sm" ng-click="products.delete(item)">Remove</button>
+      {{ item.itemName }} - Type: {{ item.type }} - Quantity: {{ item.quantityAvail }}<br></li>
+
+    </ul>
+  </div>
 </div>

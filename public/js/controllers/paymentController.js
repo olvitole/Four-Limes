@@ -28,7 +28,8 @@ function PaymentController($http, Order, User, $rootScope, $state) {
         token: response.id,
         amount: self.grandTotal,
         currency: self.currency,
-        payee: self.payee
+        payee: self.payee,
+        orderNum: self.orderId
       };
     
       $http
@@ -37,15 +38,15 @@ function PaymentController($http, Order, User, $rootScope, $state) {
           // if(res.status === 200) {
           if(res.status === 200) {
             self.paymentSuccessful = true;
-            console.log("paymentSuccessful");
-            console.log("OrderId: ", self.orderId);
-            self.updateOrder();
+            console.log("Frontend paymentSuccessful");
+            // console.log("OrderId: ", self.orderId);
+            //self.updateOrder(); // Now moved to back-end
             self.success();
           }
           else {
             self.paymentSuccessful = false;
-            console.log("paymentUnSuccessful");
-            console.log("Order was NOT updated to 'PAID'");
+            console.log("paymentUnSuccessful, try again");
+            // console.log("Order was NOT updated to 'PAID'");
           }
         });
 

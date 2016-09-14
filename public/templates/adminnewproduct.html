@@ -1,5 +1,5 @@
 <!-- ProductCreateController as addProduct -->
-
+<!-- {{addProduct.new}} -->
 <h3>Add a product to the store</h3>
 
 <form ng-submit="addProduct.create()">
@@ -8,6 +8,8 @@
   <input type="text" name="type" ng-model="addProduct.new.type" placeholder="Type of product">
   <br>
   <input type="number" step=0.01 name="price" ng-model="addProduct.new.price" placeholder="price">
+  <br>
+  <input type="file" file name="image" ng-model="addProduct.new.image" placeholder="Image">
   <br>
 
   <label for="shortDescription">Short description: (Seen on the main shopping page)</label>

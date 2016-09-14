@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.6.2",
     "bcrypt": "^0.8.7",
     "bluebird": "^3.4.6",
     "body-parser": "^1.15.2",
@@ -19,7 +20,12 @@
     "jsonwebtoken": "^7.1.9",
     "mongoose": "^4.6.0",
     "morgan": "^1.7.0",
+    "multer": "^1.2.0",
+    "multer-s3": "^2.3.2",
     "nodemailer": "^2.6.0",
-    "stripe": "^4.10.0"
+    "request": "^2.74.0",
+    "request-promise": "^4.1.1",
+    "stripe": "^4.10.0",
+    "uuid": "^2.0.2"
   }
 }
