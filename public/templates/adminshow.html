@@ -1,8 +1,12 @@
-<h1>Admin Order Show Page</h1>
+<h4>Admin Order Show Page</h4>
 <!-- {{ adminShow.selected }} -->
 <br>
 <h5>Order #: {{ adminShow.selected._id }}</h5>
 <p>Date of Order: {{ adminShow.selected.createdAt | date:'medium' }}</p>
+<p>Contact: {{ adminShow.selected.user.firstName }}</p>
+<p>Delivery Address: 'address' </p>
+<p>Contact Phone: 'phone'</p>
+<p>Email address: {{ adminShow.selected.user.email }}</p>
 
 <div class="table-responsive">
   <table class="table table-sm table-bordered table-striped">

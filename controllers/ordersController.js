@@ -59,7 +59,7 @@ function ordersCreate(req, res) {
 // SHOW (Show one order)
 function orderShow(req, res) {
   Order.findById(req.params.id)
-    .populate('items.product')
+    .populate('items.product user')
     .then(function(order) {
       if(!order) return res.status(404).json({ message: "Couldn't find order with that id" });
       return res.status(200).json(order);

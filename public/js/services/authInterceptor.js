@@ -12,7 +12,7 @@ function AuthInterceptor(TokenService, $rootScope) {
         req.headers.Authorization = "Bearer " + token;
       }
 
-      console.log(req.headers);
+      // console.log(req.headers);
       return req;
     },
     response: function(res) {
