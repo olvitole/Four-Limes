@@ -120,8 +120,8 @@ User.create([
       taxRate: 0.00
     },
       ], function(err, product) {
-    console.log(users.length + " users created!");
-    console.log(product.length + " products added. Yeah!");
+    // console.log(users.length + " users created!");
+    // console.log(product.length + " products added. Yeah!");
 
     mongoose.connection.close();
   });
