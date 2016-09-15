@@ -15,8 +15,9 @@ function makePayment(req, res){
       return res.status(500).json({ message: err })
     }
     res.status(200).json({ message: "Payment Successful" });
-    console.log("Payment successful on the backend... do something here");
-    console.log("Payment Successful on the backend req", req.body.orderNum);
+    console.log("Payment Successful");
+    // console.log("Payment successful on the backend... do something here");
+    // console.log("Payment Successful on the backend req", req.body.orderNum);
     var orderNumber = req.body.orderNum;
     ordersController.updateToPaid(orderNumber);
 

@@ -3,11 +3,6 @@ var User = require('../models/user');
 var email = require('../config/email');
 
 var orderNum;
-// Update to paid
-// function updateToPaid(orderNumber) {
-//   console.log(orderNum);
-//   updateOrderToPaid();
-// };
 
 // Patch Order to PAID
 function updateToPaid(req, res) {
@@ -16,7 +11,7 @@ function updateToPaid(req, res) {
   var isPaid = { "isPaid": true };
   Order.findByIdAndUpdate({ _id: req }, isPaid, { new: true, runValidators: true }, function(err, order) { 
       // console.log("err", err);
-      console.log("order", order);
+      //console.log("order", order);
       // console.log("res", res);
       // WHATTTTTT?????
       // if(err) return res.status(400).json(err);
@@ -58,16 +53,15 @@ function sendEmail(order){
     .execPopulate();
 */
   order
-    .populate('user')
-    .populate('item.product')
+    .populate('item.product user')
     .execPopulate()
     .then(function () {
-      console.log("sendEmail order:", order);
-      console.log('arguments after populate:', arguments);
+      //console.log("sendEmail order:", order);
+      //console.log('arguments after populate:', arguments);
       email.sendInvoiceTemplate(order);  
     })
     .catch(function(err){
-      console.log(err, "call Will, something is up with the email thingy!");
+      console.log(err, "Call Will, something is up with the email thingy!");
     });
 /*
   order
@@ -101,6 +95,7 @@ function sendEmail(order){
 function ordersIndex(req, res) {
   Order.find()
     .populate('items.product user')
+    .execPopulate()
     .then(function(orders) {
       return res.status(200).json(orders);
     })
@@ -155,6 +150,7 @@ function ordersCreate(req, res) {
 function orderShow(req, res) {
   Order.findById(req.params.id)
     .populate('items.product user')
+    .execPopulate()
     .then(function(order) {
       if(!order) return res.status(404).json({ message: "Couldn't find order with that id" });
       return res.status(200).json(order);
