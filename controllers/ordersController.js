@@ -95,12 +95,13 @@ function sendEmail(order){
 function ordersIndex(req, res) {
   Order.find()
     .populate('items.product user')
-    .execPopulate()
     .then(function(orders) {
+      console.log("After exec orders:", orders);
       return res.status(200).json(orders);
     })
     .catch(function(err) {
       return res.status(500).json(err);
+      console.log("After exec orders 500:", orders);
     })
 }
 
@@ -150,7 +151,6 @@ function ordersCreate(req, res) {
 function orderShow(req, res) {
   Order.findById(req.params.id)
     .populate('items.product user')
-    .execPopulate()
     .then(function(order) {
       if(!order) return res.status(404).json({ message: "Couldn't find order with that id" });
       return res.status(200).json(order);
