@@ -99,7 +99,9 @@ h1, h2, h3, h4, h5, h6, p, span{
 }
 .mark, mark {
   padding: .2em;
-  background-color: rgba(72,169,166,0.47);
+  color: #48A9A6;
+  font-weight: bold;
+  background-color: #FFFFFF;
 }
 .card-block a {
   color: #4281a4;
@@ -148,6 +150,7 @@ span[ng-click] {
 /* Cart */
 .card{
   height: 512px;
+  border-radius: 10px !important;
 }
 .headingTitle {
   color: #4281A4;
@@ -199,6 +202,13 @@ span[ng-click] {
   display: inline-block;
 }
 
+.table td, .table th {
+  border-top: 1px solid #48a9a6;
+}
+
+.table thead th {
+  border-bottom: 2px solid #48a9a6;
+}
 
 .navbar-light .navbar-nav .nav-link{
   margin-top: 10px;
@@ -220,7 +230,41 @@ span[ng-click] {
     margin-right: none;
   }
 }
+/* Home */
+.homeHeader {
+  background: 
+    linear-gradient(
+      rgba(0,0,0,0.5),
+      rgba(255,255,255,0.06)
+    ),
+    url('../images/fruit-bg.jpeg');
+    background-size: cover;
+    height: 100vh;
+    border-radius: 20px; 
+}
 
+.homeTitle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center; 
+}
+.homeTitle h1 {
+font-size: 90px;
+}
+.homeMain {
+  max-width: 100%;
+  margin: 20px auto;
+}
+
+.homeMain h4 {
+  margin-left: 4%;
+}
+.homeMainCallToAction {
+  text-align: center;
+}
 @media only screen and (min-width: 544px) and (max-width: 580px) {
   a.nav-link {
     font-size: 0.8em;
