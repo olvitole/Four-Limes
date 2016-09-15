@@ -1,4 +1,4 @@
-<h2>Store</h2>
+<h4>Available this week</h4>
 <div class="container">
 <!-- <div class="row">
   <div class="col-xs-offset-8 col-xs-4">
@@ -10,36 +10,46 @@
 <hr />
  -->
 <!-- <h3>Add to Cart <span>(ngcart-addtocart)</span></h3> -->
+
 <!-- Products as cards -->
-<div ng-controller="ProductsController as mainProductsArray">
-  <div ng-repeat="productsArray in mainProductsArray">
-    <div class="row"> 
-      <div class="card-group">
-        <div class="col-md-4" ng-repeat="product in productsArray">
-          <div class="card">
-             <div class="card-block">
-              <h4 class="card-title">{{ product.itemName }}</h4>
-                <h6 class="card-subtitle text-muted">{{ product.type }} - £{{ product.price }}</h6>
-            </div>
-            <img ng-src="{{ product.image }}" alt="{{ product.itemName }} image">
-            <div class="card-block">
-              <p class="card-text">{{ product.shortDescription }}</p>
-              <a ui-sref="productShow({ id: product._id })" class="card-link">More Details...</a>
-              <ngcart-addtocart id="{{ product._id }}" name="{{ product.itemName }}" price="{{ product.price }}" quantity="1" quantity-max="{{ product.quantityAvail }}">Add to Basket</ngcart-addtocart>
+  <div ng-controller="ProductsController as mainProductsArray">
+    <div ng-repeat="productsArray in mainProductsArray">
+      <div class="row"> 
+        <div class="card-group">
+          <div class="col-md-4" ng-repeat="product in productsArray">
+            <div class="card">
+               <div class="card-block">
+                <h4 class="card-title">{{ product.itemName }}</h4>
+                  <h6 class="card-subtitle text-muted">{{ product.type }} - £{{ product.price }}</h6>
+              </div>
+              <img class="cardPic" ng-src="{{ product.image }}" alt="{{ product.itemName }} image">
+              <div class="card-block">
+                <p class="card-text shortText">{{ product.shortDescription }}</p>
+                <a ui-sref="productShow({ id: product._id })" class="card-link">More Details...</a>
+                <ngcart-addtocart id="{{ product._id }}" name="{{ product.itemName }}" price="{{ product.price }}" quantity="1" quantity-max="{{ product.quantityAvail }}">Add to cart</ngcart-addtocart>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <hr/>
+
+  <div class="row">
+      <div class="col-md-12">  
+        <button class="btn btn-primary" ui-sref="cart">Cart</button>
+        <p>{{ store.getTotal }}</p>
+      </div>
+  </div>
 </div>
 
-<hr/>
-<h3>Cart <span> (ngcart-cart)</span></h3>
+<!-- <h3>Cart <span> (ngcart-cart)</span></h3> -->
 
-<ngcart-cart></ngcart-cart>
+<!-- <ngcart-cart></ngcart-cart> -->
 
-<hr/>
+<!-- <hr/> -->
 <!-- Products as cards END -->
 
 <!-- div ng-controller="ProductsController as mainProductsArray">
@@ -68,9 +78,3 @@
     </div> -->
   
 
-<div class="row">
-    <div class="col-md-12">  
-      <button class="btn btn-primary" ui-sref="cart">Checkout</button>
-    </div>
-</div>
-</div>

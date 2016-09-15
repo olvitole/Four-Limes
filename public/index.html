@@ -3,6 +3,8 @@
 <head>
   <title>Project 4 Test Deploy</title>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <!-- Vendor JS Files -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-resource.min.js"></script>
@@ -46,6 +48,7 @@
   <link rel="stylesheet" href="/bower_components/tether/dist/css/tether.min.css">
 
   <!-- Custom CSS Files -->
+  <link href="https://fonts.googleapis.com/css?family=Cabin:600|Titillium+Web:700" rel="stylesheet">
   <link rel="stylesheet" href="/css/app.css">
 
 </head>
@@ -71,11 +74,11 @@
       <li class="nav-item" ng-if="main.currentUser">
         <a ng-click="main.logout()" class="nav-link">Logout</a>
       </li>
-      <li class="nav-item" ng-if="main.currentUser">
-        <a ui-sref="modal" class="nav-link">Modal</a>
+      <li>
+        <a ng-show="main.currentUser" ui-sref="cart"><ngcart-summary></ngcart-summary></a>
       </li>
     </ul>
-      <a ng-show="main.currentUser" ui-sref="cart"><ngcart-summary></ngcart-summary></a>
+      
   </nav>
   
   <div class="container" ng-if="main.errorMessage">

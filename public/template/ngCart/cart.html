@@ -1,5 +1,5 @@
-<div class="alert alert-warning" role="alert" ng-show="ngCart.getTotalItems() === 0">
-    Your cart is empty
+<div class="alert alert-info" role="alert" ng-show="ngCart.getTotalItems() === 0">
+    Your cart is empty :(
 </div>
 
 <div class="table-responsive col-lg-12" ng-show="ngCart.getTotalItems() > 0">
@@ -8,11 +8,11 @@
 
         <thead>
         <tr>
-            <th>Remove</th>
-            <th>Item</th>
-            <th>Quantity</th>
-            <th>Amount</th>
-            <th>Total</th>
+            <th class="cartHeader">Remove</th>
+            <th class="cartHeader">Item</th>
+            <th class="cartHeader">Quantity</th>
+            <th class="cartHeader">Amount</th>
+            <th class="cartHeader">Total</th>
         </tr>
         </thead>
         <tfoot>
@@ -27,28 +27,27 @@
             <td></td>
             <td></td>
             <td></td>
-            <td>Shipping:</td>
-            <td>£5.99</td>
+            <td class="cartDetail">Shipping:</td>
+            <td class="cartDetail">£5.99</td>
         </tr>
         <tr>
             <td></td>
             <td></td>
             <td></td>
-            <td>Total:</td>
-            <td>{{ 5.99 + ngCart.totalCost() | currency: ngCart.getCurrency() }}</td>
+            <td class="cartDetail">Total:</td>
+            <td class="cartDetail">{{ 5.99 + ngCart.totalCost() | currency: ngCart.getCurrency() }}</td>
         </tr>
         </tfoot>
         <tbody>
         <tr ng-repeat="item in ngCart.getCart().items track by $index">
-            <td><span ng-click="ngCart.removeItemById(item.getId())" class="glyphicon glyphicon-remove">X</span></td>
+            <td class="cartDetail"><span ng-click="ngCart.removeItemById(item.getId())" class="glyphicon glyphicon-remove activeItem">x</span></td>
 
-            <td>{{ item.getName() }}</td>
-            <td><span class="glyphicon glyphicon-minus" ng-class="{'disabled':item.getQuantity()==1}"
-                      ng-click="item.setQuantity(-1, true)">-</span>&nbsp;&nbsp;
+            <td class="cartDetail">{{ item.getName() }}</td>
+            <td class="cartDetail"><span class="glyphicon glyphicon-minus activeItem" ng-class="{'disabled': item.getQuantity()==1}" ng-click="item.setQuantity(-1, true)">-</span>&nbsp;&nbsp;
                 {{ item.getQuantity() | number }}&nbsp;&nbsp;
-                <span class="glyphicon glyphicon-plus" ng-click="item.setQuantity(1, true)">+</span></td>
-            <td>{{ item.getPrice() | currency: ngCart.getCurrency() }}</td>
-            <td>{{ item.getTotal() | currency: ngCart.getCurrency() }}</td>
+                <span class="glyphicon glyphicon-plus activeItem" ng-click="item.setQuantity(1, true)">+</span></td>
+            <td class="cartDetail">{{ item.getPrice() | currency: ngCart.getCurrency() }}</td>
+            <td class="cartDetail">{{ item.getTotal() | currency: ngCart.getCurrency() }}</td>
         </tr>
         </tbody>
     </table>

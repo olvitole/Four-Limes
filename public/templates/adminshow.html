@@ -1,6 +1,7 @@
 <h4>Admin Order Show Page</h4>
 <!-- {{ adminShow.selected }} -->
-<br>
+<button type="button" class="btn btn-primary" ui-sref="admin">Back</button>
+<hr>
 <h5>Order #: {{ adminShow.selected._id }}</h5>
 <p>Date of Order: {{ adminShow.selected.createdAt | date:'medium' }}</p>
 <p>Contact: {{ adminShow.selected.user.firstName }} {{ adminShow.selected.user.lastName }}</p>

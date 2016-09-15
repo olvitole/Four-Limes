@@ -15,7 +15,7 @@ var transporter = nodemailer.createTransport(smtpConfig);
 var invoiceTemplate = transporter.templateSender({
   subject: '{{firstName }}, FourLimes Thanks You!',
   text: 'This is the text version{{ order_id }}',
-  html: "<h1>Four*Limes</h1><br><h3>Hi {{firstName}}, thanks for your order.</h3><h3>Your order number is {{ order_id }}</h3><p>In case you need a reminder, the details for your order are: </p><p> Date ordered: {{ date }}</p><p>Contact Person for delivery: {{ firstName }} {{ lastName }}</p><p>Delivery Address:</p><p>{{ buildingNumber }} {{ addressLine1 }}</p><p>{{ addressLine3 }}</p><p>{{ postcode }}</p><p>Contact Person's Phone Number: {{ contact_ph }}</p><p> Order total: {{ grandTotal }}</p><p>Steve, your delivery driver, will be in touch in the next business day to personally organise delivery with you.</p><h5>If you have any issues or you havn't heard from Steve, then call us on 07508 727482 or drop us a line at care@fourlimes.co.uk</h5><br><br><p>FourLimes ltd - London, UK</p>"
+  html: "<head><style>body{background-color: #9ACD32}h1{color: white}</style></head><body><h1>Four*Limes</h1><br><h3>Hi {{firstName}}, thanks for your order.</h3><h3>Your order number is {{ order_id }}</h3><p>In case you need a reminder, the details for your order are: </p><p> Date ordered: {{ date }}</p><p>Contact Person for delivery: {{ firstName }} {{ lastName }}</p><p>Delivery Address:</p><p>{{ buildingNumber }} {{ addressLine1 }}</p><p>{{ addressLine3 }}</p><p>{{ postcode }}</p><p>Contact Person's Phone Number: {{ contact_ph }}</p><p> Order total: £{{ grandTotal }}</p><p>Steve, your delivery driver, will be in touch in the next business day to personally organise delivery with you.</p><h5>If you have any issues or you havn't heard from Steve, then call us on 07508 727482 or drop us a line at care@fourlimes.co.uk</h5><br><br><p>FourLimes ltd - London, UK</p></body>"
 }, { from: process.env.GMAIL_ID });
   function sendInvoiceTemplate(order) {
 //function sendInvoiceTemplate(email, date_in, inorder_id, firstName_in, lastName_in, buildingNumber_in, addressLine1_in, addressLine2_in, addressLine3_in, postcode_in, contact_ph_in, grandTotal_in) {
@@ -42,9 +42,9 @@ var invoiceTemplate = transporter.templateSender({
   contact_ph_in = order.user.contactPh;
   if(contact_ph_in == undefined){contact_ph_in = ""};
   grandTotal_in = order.grandTotal;
-  console.log("before the if", grandTotal_in);
+  // console.log("before the if", grandTotal_in);
   if(grandTotal_in == undefined){grandTotal_in = ""};
-  console.log("after the if", grandTotal_in);
+  // console.log("after the if", grandTotal_in);
 
   invoiceTemplate({
       to: email
@@ -64,9 +64,9 @@ var invoiceTemplate = transporter.templateSender({
 
   }, function(err, info){
       if(err){
-         console.log('Error');
+         console.log('Error', err);
       }else{
-          console.log('Yea, email sent!');
+          console.log('Yeah, email sent!');
       }
   });
 }

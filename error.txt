@@ -1,0 +1,40 @@
+POST /api/payment 200 2623.143 ms - 32
+order { _id: 57d9d4b30d555bbc09bf05f7,
+  updatedAt: 2016-09-14T22:52:52.314Z,
+  createdAt: 2016-09-14T22:52:35.152Z,
+  user: 57d83e5d591ea541c0a3dc12,
+  __v: 0,
+  isPaid: true,
+  items: 
+   [ { taxRate: 0,
+       total: 2.19,
+       product: 57d9c9f3be3d70b70ed27b84,
+       quantity: 1,
+       _id: 57d9d4b30d555bbc09bf05f8 } ] }
+GET /templates/home.html 200 11.610 ms - 13
+sendEmail order: { _id: 57d9d4b30d555bbc09bf05f7,
+  updatedAt: 2016-09-14T22:52:52.314Z,
+  createdAt: 2016-09-14T22:52:35.152Z,
+  user: null,
+  __v: 0,
+  isPaid: true,
+  items: 
+   [ { taxRate: 0,
+       total: 2.19,
+       product: [Object],
+       quantity: 1,
+       _id: 57d9d4b30d555bbc09bf05f8 } ] }
+TypeError: Cannot read property 'email' of null
+    at Object.sendInvoiceTemplate (/Users/will/development/Projects/Project 4/project4/WDI_Project4/config/email.js:23:21)
+    at /Users/will/development/Projects/Project 4/project4/WDI_Project4/controllers/ordersController.js:57:13
+    at tryCatcher (/Users/will/development/Projects/Project 4/project4/WDI_Project4/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/will/development/Projects/Project 4/project4/WDI_Project4/node_modules/bluebird/js/release/promise.js:510:31)
+    at Promise._settlePromise (/Users/will/development/Projects/Project 4/project4/WDI_Project4/node_modules/bluebird/js/release/promise.js:567:18)
+    at Promise._settlePromise0 (/Users/will/development/Projects/Project 4/project4/WDI_Project4/node_modules/bluebird/js/release/promise.js:612:10)
+    at Promise._settlePromises (/Users/will/development/Projects/Project 4/project4/WDI_Project4/node_modules/bluebird/js/release/promise.js:691:18)
+    at Async._drainQueue (/Users/will/development/Projects/Project 4/project4/WDI_Project4/node_modules/bluebird/js/release/async.js:138:16)
+    at Async._drainQueues (/Users/will/development/Projects/Project 4/project4/WDI_Project4/node_modules/bluebird/js/release/async.js:148:10)
+    at Immediate.Async.drainQueues [as _onImmediate] (/Users/will/development/Projects/Project 4/project4/WDI_Project4/node_modules/bluebird/js/release/async.js:17:14)
+    at tryOnImmediate (timers.js:543:15)
+    at processImmediate [as _immediateCallback] (timers.js:523:5) 'call Will, something is up with the email thingy!'
+GET / 200 9.476 ms - 4532

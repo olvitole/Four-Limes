@@ -23,7 +23,7 @@ User.create([
     contactPh: "020 3308 9506",
     isAdmin: false
   },{
-    firstName: "roro",
+    firstName: "Roro",
     lastName: "Rossington",
     email: "rosanna.rossington@ga.co",
     password: "password",
