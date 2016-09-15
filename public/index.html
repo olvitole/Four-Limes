@@ -75,7 +75,7 @@
         <a ng-click="main.logout()" class="nav-link">Logout</a>
       </li>
       <li>
-        <a ng-show="main.currentUser" ui-sref="cart"><ngcart-summary></ngcart-summary></a>
+        <a ng-show="main.currentUser" ui-sref="cart"><ngcart-summary ng-class="{ 'updated': main.cartUpdated }"></ngcart-summary></a>
       </li>
     </ul>
       

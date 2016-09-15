@@ -2,14 +2,15 @@ angular
   .module("AngularApp")
   .controller("mainController", mainController);
 
-mainController.$inject = ["TokenService", '$state', '$rootScope', 'ngCart'];
+mainController.$inject = ["TokenService", '$state', '$rootScope', 'ngCart', '$timeout'];
 
-function mainController(TokenService, $state, $rootScope, ngCart) {
+function mainController(TokenService, $state, $rootScope, ngCart, $timeout) {
 
   var self = this;
   this.paymentMessage;
   this.errorMessage;
   this.currentUser = TokenService.decodeToken();
+  self.cartUpdated = false;
 
   this.logout = function logout() {
     TokenService.clearToken();
@@ -35,5 +36,14 @@ function mainController(TokenService, $state, $rootScope, ngCart) {
   $rootScope.$on("$stateChangeStart", function() {
       self.errorMessage = null;
       self.paymentMessage = null;
+  });
+
+  $rootScope.$on('ngCart:change', function(){
+    self.cartUpdated = true;
+    $timeout(function() {
+      $rootScope.$applyAsync(function() {
+        self.cartUpdated = false;
+      });
+    }, 1000);
   });
 }

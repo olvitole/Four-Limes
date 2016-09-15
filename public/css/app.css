@@ -1,12 +1,8 @@
-/* Testing
-h1 {
-  color: red;
-}
-*/
+
 /*FourLimes title text*/
 /*font-family: 'Titillium Web', sans-serif;*/ 
 /* Body Font 
-font-family: 'Cabin', sans-serif; */
+font-family: 'Cabin', sans-serif; */ 
 
 body {
   background-color: #E4DFDA;
@@ -47,7 +43,6 @@ h1, h2, h3, h4, h5, h6, p, span{
 }
 
 
-
 /*NavBar*/
 .bg-faded {
   background-color: #48A9A6;
@@ -56,27 +51,37 @@ h1, h2, h3, h4, h5, h6, p, span{
   border-radius: 0px;
 }
 .navbar-light .navbar-brand {
-    color: white;
-    font-family: 'Titillium Web', sans-serif;
-    height: 45px;
-    font-size: 52px;
+  color: white;
+  font-family: 'Titillium Web', sans-serif;
+  height: 45px;
+  font-size: 52px;
 }
 .navbar-light .navbar-brand:hover {
-    color: white;
+  color: white;
 }
+.navbar-light .navbar-brand:visited {
+  color: white;
+}
+.navbar-light .navbar-brand:focus {
+  color: white;
+}
+.navbar-light .navbar-brand:active {
+  color: white;
+}
+
 .navbar-nav .nav-link {
-    display: block;
-    padding-top: 1.425rem;
-    padding-bottom: .425rem;
+  display: block;
+  padding-top: 1.425rem;
+  padding-bottom: .425rem;
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color: rgba(255,255,255,.7);
+  color: rgba(255,255,255,.7);
 }
 
 .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .active>.nav-link:focus, .navbar-light .navbar-nav .active>.nav-link:hover, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.active:focus, .navbar-light .navbar-nav .nav-link.active:hover, .navbar-light .navbar-nav .nav-link.open, .navbar-light .navbar-nav .nav-link.open:focus, .navbar-light .navbar-nav .nav-link.open:hover, .navbar-light .navbar-nav .open>.nav-link, .navbar-light .navbar-nav .open>.nav-link:focus, .navbar-light .navbar-nav .open>.nav-link:hover {
-    color: rgb(255,255,255);
-    font-size: 17px;
+  color: rgb(255,255,255);
+  font-size: 17px;
 }
 
 /*Register and Login*/
@@ -89,8 +94,8 @@ h1, h2, h3, h4, h5, h6, p, span{
   max-width: 100%;
 }
 .mark, mark {
-    padding: .2em;
-    background-color: rgba(72,169,166,0.47);
+  padding: .2em;
+  background-color: rgba(72,169,166,0.47);
 }
 .card-block a {
   color: #4281a4;
@@ -99,18 +104,37 @@ h1, h2, h3, h4, h5, h6, p, span{
 
 /* For Cart Summary */
 .summaryBar {
+  margin-left: 40px; 
+}
+
+
+ngcart-summary {
+  color: #ddd;
+  transition: font-size 0.5s;
+}
+
+ngcart-summary.updated {
   color: white;
+  font-size: 18px;
+}
+
+.RedAnimate {
+  color: red;
   margin-left: 40px; 
 }
 
 /* For ngCart */
 hr {
-    margin:40px 0;
+  margin:40px 0;
 } 
-h3 { color:#1758AA}
-h3 span {font-size:14px; display:block;}
+h3 {
+  color:#1758AA
+}
+h3 span {
+  font-size:14px; display:block;
+}
 span[ng-click] {
-        cursor: pointer;
+  cursor: pointer;
 }
 
 /* Cart */
@@ -145,4 +169,19 @@ span[ng-click] {
   font-size: 16px;
   display: inline;
   width: 100px;
+}
+
+/* Add a product */
+.imageFeedback {
+  color: #4281A4;
+  display: inline;
+}
+
+#addProductButton {
+  margin-top: 14px;
+  margin-left: 14px;
+}
+
+.pageHeader {
+  color: #4281A4;
 }
