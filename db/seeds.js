@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var User = require('../models/user');
 var Product = require('../models/product');
 
-var databaseUri = require('../config/db')('development');
+var databaseUri = require('../config/db')(process.env.NODE_ENV || 'development');
 mongoose.connect(databaseUri);
 
 User.collection.drop();
