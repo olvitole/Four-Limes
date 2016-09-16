@@ -96,6 +96,7 @@ h1, h2, h3, h4, h5, h6, p, span{
 /*Store*/
 .cardPic {
   max-width: 100%;
+  min-width: 100%;
 }
 .mark, mark {
   padding: .2em;
@@ -149,7 +150,7 @@ span[ng-click] {
 
 /* Cart */
 .card{
-  height: 512px;
+  height: 585px;
   border-radius: 10px !important;
 }
 .headingTitle {
@@ -270,6 +271,16 @@ font-size: 90px;
 .homeMainCallToAction {
   text-align: center;
 }
+
+.showImg {
+  max-width: 550px;
+  border-radius: 16px;
+}
+
+.showBtn {
+  margin-top: 14px;
+}
+
 @media only screen and (min-width: 544px) and (max-width: 580px) {
   a.nav-link {
     font-size: 0.8em;
