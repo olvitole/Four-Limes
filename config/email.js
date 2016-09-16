@@ -20,8 +20,10 @@ var invoiceTemplate = transporter.templateSender({
   function sendInvoiceTemplate(order) {
 //function sendInvoiceTemplate(email, date_in, inorder_id, firstName_in, lastName_in, buildingNumber_in, addressLine1_in, addressLine2_in, addressLine3_in, postcode_in, contact_ph_in, grandTotal_in) {
  
+
   email = order.user.email;
   date_in = order.createdAt;
+  // Error handling
   if(date_in == undefined){date_in = ""};
   inorder_id = order._id;
   if(inorder_id == undefined){inorder_id = ""};
@@ -42,9 +44,7 @@ var invoiceTemplate = transporter.templateSender({
   contact_ph_in = order.user.contactPh;
   if(contact_ph_in == undefined){contact_ph_in = ""};
   grandTotal_in = order.grandTotal;
-  // console.log("before the if", grandTotal_in);
   if(grandTotal_in == undefined){grandTotal_in = ""};
-  // console.log("after the if", grandTotal_in);
 
   invoiceTemplate({
       to: email

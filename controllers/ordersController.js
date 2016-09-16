@@ -9,15 +9,15 @@ function updateToPaid(req, res) {
   // orderNum = req;
   console.log("Order number is ", req);
   var isPaid = { "isPaid": true };
-  Order.findByIdAndUpdate({ _id: req }, isPaid, { new: true, runValidators: true }, function(err, order) { 
-      // console.log("err", err);
-      //console.log("order", order);
-      // console.log("res", res);
-      // WHATTTTTT?????
-      // if(err) return res.status(400).json(err);
-      // return res.status(200).json(order);
+  Order.findByIdAndUpdate({ _id: req }, isPaid, { new: true, runValidators: true })
+    .populate('item.product user')
+    .then(function(order) { 
+      console.log("order before email", order);
 
-      sendEmail(order);
+      email.sendInvoiceTemplate(order);
+    })
+    .catch(function(err) {
+      console.log("To err is human", err);
     });
 }
   // Order.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true}, function(err, order) { 
@@ -36,60 +36,59 @@ function updateToPaid(req, res) {
   //     });
 
 // Send the Email
-function sendEmail(order){
-/*
-  order
-    .populate('user')
-    .populate('item.product');
+// function sendEmail(order){
+// /*
+//   order
+//     .populate('user')
+//     .populate('item.product');
 
-  order
-    .populate('user')
-    .populate('item.product'),
-    .populate(function (err, order) {});
+//   order
+//     .populate('user')
+//     .populate('item.product'),
+//     .populate(function (err, order) {});
 
-  order
-    .populate('user')
-    .populate('item.product')
-    .execPopulate();
-*/
-  order
-    .populate('item.product user')
-    .execPopulate()
-    .then(function () {
-      //console.log("sendEmail order:", order);
-      //console.log('arguments after populate:', arguments);
-      email.sendInvoiceTemplate(order);  
-    })
-    .catch(function(err){
-      console.log(err, "Call Will, something is up with the email thingy!");
-    });
-/*
-  order
-    .populate('user', function (err, order) {})
-    .populate('item.product', function (err, order) {});
-*/
+//   order
+//     .populate('user')
+//     .populate('item.product')
+//     .execPopulate();
+// */
+//   order
+//     .populate('item.product user')
+//     .then(function() {
+//       console.log("sendEmail order:", order);
+//       //console.log('arguments after populate:', arguments);
+        
+//     })
+//     .catch(function(err){
+//       console.log(err, "Call Will, something is up with the email thingy!");
+//     });
+// /*
+//   order
+//     .populate('user', function (err, order) {})
+//     .populate('item.product', function (err, order) {});
+// */
 
 
-/*
-  Order.findById(order._id)
-    .populate('items.product user')
-    .then(function(order) {
-      console.log("sendEmail order:", order);
-      // console.log("Order total: ", order.grandTotal);
-      //// return email.sendMail({
-      ////   to: user.email, 
-      ////   from: process.env.GMAIL_ID,
-      ////   subject: "Your Delivery from FourLimes",
-      ////   text: "Thanks for your order, ya legend!"
-      //// });
-      // email.sendInvoiceTemplate(order.user.email, order.createdAt, order._id, order.user.firstName, order.user.lastName, order.user.buildingNumber, order.user.addressLine1, order.user.addressLine2,order.user.addressLine3, order.user.postCode, order.user.contactPh, order.grandTotal); 
-      email.sendInvoiceTemplate(order);  
-    })
-    .catch(function(err){
-      console.log(err, "call Will, something is up with the email thingy!");
-    });
-*/
-}
+
+//   Order.findById(order._id)
+//     .populate('items.product user')
+//     .then(function(order) {
+//       console.log("sendEmail order:", order);
+//       // console.log("Order total: ", order.grandTotal);
+//       //// return email.sendMail({
+//       ////   to: user.email, 
+//       ////   from: process.env.GMAIL_ID,
+//       ////   subject: "Your Delivery from FourLimes",
+//       ////   text: "Thanks for your order, ya legend!"
+//       //// });
+//       // email.sendInvoiceTemplate(order.user.email, order.createdAt, order._id, order.user.firstName, order.user.lastName, order.user.buildingNumber, order.user.addressLine1, order.user.addressLine2,order.user.addressLine3, order.user.postCode, order.user.contactPh, order.grandTotal); 
+//       email.sendInvoiceTemplate(order);  
+//     })
+//     .catch(function(err){
+//       console.log(err, "call Will, something is up with the email thingy!");
+//     });
+
+// }
 
 // ORDERS INDEX
 function ordersIndex(req, res) {
