@@ -115,7 +115,7 @@ User.create([
       shortDescription: "Go bananas!",
       longDescription: "These organic bananas are great! They have the perfect bend and length. We’ve been out to meet the growers ourselves and seen first-hand that everyone gets a fair deal, with good working conditions and pay.",
       quantityAvail: 44,
-      packSize: "6 apples",
+      packSize: "Bunch of 6",
       onSpecial: false,
       taxRate: 0.00
     }, {
@@ -134,10 +134,10 @@ User.create([
       image: "https://assets.riverford.co.uk/live/media/catalog/product/cache/1/image/262x/9df78eab33525d08d6e5fb8d27136e95/f/i/raspberriese.jpg",
       type: "Cowichan",
       price: 1.99,
-      shortDescription: "Perfecct, juicy raspberries.",
+      shortDescription: "Wow, juicy raspberries.",
       longDescription: "Our raspberries are so delicious it’s almost criminal to do too much to them. Pile atop a cream-capped meringue or simply pluck them from straight from the box. We know when summer is in our midst when we take delivery of English Raspberries. These beauties come from Tim's farm in Herefordshire. Most people grow their raspberries in pollytunnels, but not our Tim. He only grows them outside, so they get plenty of direct sunlight and grow and ripen slowly. It makes for particularly delicious fruit.",
       quantityAvail: 20,
-      packSize: "150g",
+      packSize: "150g punnet",
       onSpecial: false,
       taxRate: 0.00
     }, {
@@ -157,7 +157,7 @@ User.create([
       type: "Key",
       price: 1.49,
       shortDescription: "One bag = one Key Lime Pie :)",
-      longDescription: "Limes can be a little yellow. Don't be put off this is natural the limes will still be perfectly ripe inside. Use the Juice in 100's of ways. Add some zing to your cooking with these liems.",
+      longDescription: "Limes can be a little yellow. Don't be put off this is natural the limes will still be perfectly ripe inside. Use the Juice in 100's of ways. Add some zing to your cooking with these limes.",
       quantityAvail: 25,
       packSize: "450g bag",
       onSpecial: false,

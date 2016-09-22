@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "bootstrap": "v4.0.0-alpha.4",
-    "ngCart": "ngcart#^1.0.0"
+    "ngCart": "ngcart#^1.0.0",
+    "angular-filter": "^0.5.11"
   }
 }

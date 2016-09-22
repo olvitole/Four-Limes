@@ -1,6 +1,7 @@
 angular
   .module("AngularApp")
-  .controller("StoreController", StoreController);
+  .controller("StoreController", StoreController)
+
 
 StoreController.$inject = ["TokenService", '$state', '$rootScope', 'ngCart', 'Order'];
 
@@ -17,5 +18,6 @@ function StoreController(TokenService, $state, $rootScope, ngCart, Order) {
   $rootScope.$on("paymentSuccessful"), function(event, data) {
     ngCart.empty(true);
   }
-}
 
+  self.searchProduct = '';
+}

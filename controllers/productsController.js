@@ -2,9 +2,9 @@ var Product = require('../models/product');
 
 // INDEX
 function productIndex(req, res) {
-  Product.find(function(err, product) {
+  Product.find(function(err, products) {
     if(err) return res.status(500).json(err);
-    return res.status(200).json(product);
+    return res.status(200).json(products);
   });
 }
 

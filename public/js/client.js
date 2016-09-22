@@ -1,5 +1,5 @@
 angular
-  .module('AngularApp', ["ngResource", 'ui.router', 'angular-jwt', 'ngCart'])
+  .module('AngularApp', ["ngResource", 'ui.router', 'angular-jwt', 'ngCart','angular.filter'])
   .config(function() {
     Stripe.setPublishableKey('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
   })
@@ -15,11 +15,11 @@ function setupInterceptor($httpProvider) {
 setupOrderInterceptor.$inject = ["$httpProvider"];
 function setupOrderInterceptor($httpProvider) {
   return $httpProvider.interceptors.push("OrderInterceptor");
-}   
+}
 
 Router.$inject = ["$stateProvider", '$urlRouterProvider'];
 function Router($stateProvider, $urlRouterProvider) {
-  
+
   $stateProvider
     .state("home", {
       url: "/",
@@ -86,7 +86,7 @@ function Router($stateProvider, $urlRouterProvider) {
       controller: "AdminShowController as adminShow"
     })
 
-         
+
 
   $urlRouterProvider.otherwise("/");
 }

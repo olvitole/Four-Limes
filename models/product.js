@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var s3 = require('../config/s3');
 
 var productSchema = new mongoose.Schema({
-  
+
   itemName: { type: String },
   image: { type: String },
   type: { type: String },
@@ -13,7 +13,6 @@ var productSchema = new mongoose.Schema({
   packSize: { type: String },
   onSpecial: { type: Boolean, default: false },
   taxRate: { type: Number }
-
 });
 
 productSchema.path('image')

@@ -2,7 +2,7 @@
 <div class="container">
 <!-- <div class="row">
   <div class="col-xs-offset-8 col-xs-4">
-    <h3>Summary <span>(ngcart-summary)</span></h3>    
+    <h3>Summary <span>(ngcart-summary)</span></h3>
       <ngcart-summary></ngcart-summary>
   </div>
 </div>
@@ -10,13 +10,29 @@
 <hr />
  -->
 <!-- <h3>Add to Cart <span>(ngcart-addtocart)</span></h3> -->
+<div class="row">
+  <div class="col-xs-4">
+
+    <!-- Search Form -->
+    <form>
+      <div class="form-group">
+        <div class="input-group">
+          <!-- <div class="input-group-addon">Search</div> -->
+            <input type="text" class="form-control" placeholder="Search Products..." ng-model="searchProduct">
+
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
 
 <!-- Products as cards -->
-  <div ng-controller="ProductsController as mainProductsArray">
-    <div ng-repeat="productsArray in mainProductsArray">
-      <div class="row"> 
+  <div ng-controller="ProductsController as products">
+    <div>
+      Search Product => {{ searchProduct }}
+      <div class="row">
         <div class="card-group">
-          <div class="col-md-4" ng-repeat="product in productsArray">
+          <div class="col-md-4" ng-repeat="product in products.all | filterBy: ['itemName', 'type', 'shortDescription', 'longDescription']: searchProduct">
             <div class="card">
                <div class="card-block">
                 <h4 class="card-title">{{ product.itemName }}</h4>
@@ -38,7 +54,7 @@
   <hr/>
 
   <div class="row">
-      <div class="col-md-12">  
+      <div class="col-md-12">
         <button class="btn btn-primary" ui-sref="cart">Cart</button>
         <p>{{ store.getTotal }}</p>
       </div>
@@ -74,7 +90,5 @@
     <div class="col-xs-6 col-sm-3">
       <h4>My Item #4</h4>
       <p> $29.25</p>
-      <ngcart-addtocart id="item4" name="My Item #4" price="29.25" quantity="1" quantity-max="10">Add to Cart</ngcart-addtocart>        
+      <ngcart-addtocart id="item4" name="My Item #4" price="29.25" quantity="1" quantity-max="10">Add to Cart</ngcart-addtocart>
     </div> -->
-  
-

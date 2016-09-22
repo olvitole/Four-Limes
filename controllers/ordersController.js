@@ -11,7 +11,7 @@ function updateToPaid(req, res) {
   var isPaid = { "isPaid": true };
   Order.findByIdAndUpdate({ _id: req }, isPaid, { new: true, runValidators: true })
     .populate('item.product user')
-    .then(function(order) { 
+    .then(function(order) {
       console.log("order before email", order);
 
       email.sendInvoiceTemplate(order);
@@ -20,19 +20,19 @@ function updateToPaid(req, res) {
       console.log("To err is human", err);
     });
 }
-  // Order.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true}, function(err, order) { 
+  // Order.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true}, function(err, order) {
   //       if(err) return res.status(400).json(err);
   //       return res.status(200).json(order);
   //     });
   // }
-  // , function(err) { 
+  // , function(err) {
   //       if(err) {
-  //       
+  //
   //        return res.status(400).json(err);
   //      } else {
   //       console.log("Update to paid successful");
   //       return res.status(200).json(order);
-  //      }  
+  //      }
   //     });
 
 // Send the Email
@@ -57,7 +57,7 @@ function updateToPaid(req, res) {
 //     .then(function() {
 //       console.log("sendEmail order:", order);
 //       //console.log('arguments after populate:', arguments);
-        
+
 //     })
 //     .catch(function(err){
 //       console.log(err, "Call Will, something is up with the email thingy!");
@@ -76,13 +76,13 @@ function updateToPaid(req, res) {
 //       console.log("sendEmail order:", order);
 //       // console.log("Order total: ", order.grandTotal);
 //       //// return email.sendMail({
-//       ////   to: user.email, 
+//       ////   to: user.email,
 //       ////   from: process.env.GMAIL_ID,
 //       ////   subject: "Your Delivery from FourLimes",
 //       ////   text: "Thanks for your order, ya legend!"
 //       //// });
-//       // email.sendInvoiceTemplate(order.user.email, order.createdAt, order._id, order.user.firstName, order.user.lastName, order.user.buildingNumber, order.user.addressLine1, order.user.addressLine2,order.user.addressLine3, order.user.postCode, order.user.contactPh, order.grandTotal); 
-//       email.sendInvoiceTemplate(order);  
+//       // email.sendInvoiceTemplate(order.user.email, order.createdAt, order._id, order.user.firstName, order.user.lastName, order.user.buildingNumber, order.user.addressLine1, order.user.addressLine2,order.user.addressLine3, order.user.postCode, order.user.contactPh, order.grandTotal);
+//       email.sendInvoiceTemplate(order);
 //     })
 //     .catch(function(err){
 //       console.log(err, "call Will, something is up with the email thingy!");
@@ -95,12 +95,12 @@ function ordersIndex(req, res) {
   Order.find()
     .populate('items.product user')
     .then(function(orders) {
-      console.log("After exec orders:", orders);
+      // console.log("After exec orders:", orders);
       return res.status(200).json(orders);
     })
     .catch(function(err) {
       return res.status(500).json(err);
-      console.log("After exec orders 500:", orders);
+      // console.log("After exec orders 500:", orders);
     })
 }
 
@@ -163,7 +163,7 @@ function orderShow(req, res) {
 function ordersUpdate(req, res) {
   // console.log("Update req", req.body);
   // console.log("Update res", res);
-  Order.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true}, function(err, order) { 
+  Order.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true}, function(err, order) {
       if(err) return res.status(400).json(err);
       return res.status(200).json(order);
     });

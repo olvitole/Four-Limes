@@ -16,6 +16,7 @@
   <script src="/bower_components/tether/dist/js/tether.min.js"></script>
   <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+  <script src="bower_components/angular-filter/dist/angular-filter.min.js"></script>
 
 
   <!-- Custom JS Files -->
@@ -39,9 +40,11 @@
   <script src="/js/services/orderInterceptor.js"></script>
   <script src="/js/services/authInterceptor.js"></script>
   <script src="/js/services/tokenServices.js"></script>
-  <script src="/js/services/formData.js"></script>  
-  
-  <script src="/js/directives/file.js"></script>  
+  <script src="/js/services/formData.js"></script>
+  <script src="/js/services/productFilter.js"></script>
+
+
+  <script src="/js/directives/file.js"></script>
 
   <!-- Vendor CSS Files -->
   <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -52,7 +55,7 @@
   <link rel="stylesheet" href="/css/app.css">
 
 </head>
-<body ng-controller="mainController as main"> 
+<body ng-controller="mainController as main">
   <!-- <nav class="navbar navbar-light bg-faded">
     <a class="navbar-brand" ui-sref="home">Four*Limes</a>
     <ul class="nav navbar-nav">
@@ -112,7 +115,7 @@
   </nav>
 
 
- 
+
   <!-- New 1/2 working -->
  <!--  <nav class="navbar navbar-light bg-faded">
     <button class="navbar-toggler hidden-md-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar" aria-controls="exCollapsingNavbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -138,11 +141,11 @@
         <li class="nav-item" ng-if="main.currentUser">
           <a ng-click="main.logout()" class="nav-link">Logout</a>
         </li>
-      </ul>  
+      </ul>
     </div>
     <a class="pull-right" ng-show="main.currentUser" ui-sref="cart"><ngcart-summary ng-class="{ 'updated': main.cartUpdated }"></ngcart-summary></a>
   </nav> -->
-  
+
   <div class="container" ng-if="main.errorMessage">
       <div class="alert alert-info alert-dismissible fade in" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -159,8 +162,8 @@
     <p class="m-b-0">Your payment was successful, you will receive an email shortly with your delivery details.</p>
     </div>
   </div>
-    
+
   <main ui-view class="container"></main>
-  
+
 </body>
 </html>
