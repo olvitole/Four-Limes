@@ -1,8 +1,8 @@
 /*.test */
 /*FourLimes title text*/
-/*font-family: 'Titillium Web', sans-serif;*/ 
-/* Body Font 
-font-family: 'Cabin', sans-serif; */ 
+/*font-family: 'Titillium Web', sans-serif;*/
+/* Body Font
+font-family: 'Cabin', sans-serif; */
 
 body {
   background-color: #E4DFDA;
@@ -91,7 +91,7 @@ h1, h2, h3, h4, h5, h6, p, span{
 /*Register and Login*/
 .formSpacing {
   margin: 20px;
-} 
+}
 
 /*Store*/
 .cardPic {
@@ -107,6 +107,11 @@ h1, h2, h3, h4, h5, h6, p, span{
 .card-block a {
   color: #4281a4;
   text-decoration: none;
+}
+
+.highlight {
+  color: #4281a4;
+  display: inline-block;
 }
 
 /* For Cart Summary */
@@ -131,13 +136,13 @@ ngcart-summary.updated {
 
 .RedAnimate {
   color: red;
-  margin-left: 40px; 
+  margin-left: 40px;
 }
 
 /* For ngCart */
 hr {
   margin:40px 0;
-} 
+}
 h3 {
   color:#1758AA
 }
@@ -189,7 +194,7 @@ span[ng-click] {
   display: inline;
 }
 
-#addProductButton { 
+#addProductButton {
   margin-top: 14px;
   margin-left: 14px;
 }
@@ -216,7 +221,7 @@ span[ng-click] {
   color: white;
 }
 
-.burgerButton{ 
+.burgerButton{
   color: white;
   margin-top: 4px;
 }
@@ -238,7 +243,7 @@ span[ng-click] {
 }
 /* Home */
 .homeHeader {
-  background: 
+  background:
     linear-gradient(
       rgba(0,0,0,0.5),
       rgba(255,255,255,0.06)
@@ -246,7 +251,7 @@ span[ng-click] {
     url('../images/fruit-bg.jpeg');
     background-size: cover;
     height: 100vh;
-    border-radius: 20px; 
+    border-radius: 20px;
 }
 
 .homeTitle {
@@ -255,7 +260,7 @@ span[ng-click] {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  text-align: center; 
+  text-align: center;
 }
 .homeTitle h1 {
 font-size: 90px;

@@ -29,7 +29,7 @@
 <!-- Products as cards -->
   <div ng-controller="ProductsController as products">
     <div>
-      <h4 ng-if="searchProduct">Showing only search results with <div class="highlight">{{ searchProduct }}'</div></h4>
+      <h4 ng-if="searchProduct">Showing only search results with <div class="highlight">'{{ searchProduct }}'</div></h4>
       <div class="row">
         <div class="card-group">
           <div class="col-md-4" ng-repeat="product in products.all | filterBy: ['itemName', 'type', 'shortDescription', 'longDescription']: searchProduct">
