@@ -1,11 +1,25 @@
 var Product = require('../models/product');
+var MainCategory = require('../models/mainCategories');
 
 // INDEX
+// function productIndex(req, res) {
+//   Product.find(function(err, products) {
+//     if(err) return res.status(500).json(err);
+//     return res.status(200).json(products);
+//   });
+// }
+
+// New INDEX written with promises
 function productIndex(req, res) {
-  Product.find(function(err, products) {
-    if(err) return res.status(500).json(err);
-    return res.status(200).json(products);
-  });
+  Product.find()
+    // .populate('mainCategory')
+    .populate('mainCategory')
+    .then(function(products){
+      return res.status(200).json(products);
+    })
+    .catch(function(err){
+      return res.status(500).json(err);
+    })
 }
 
 // CREATE (Add product)

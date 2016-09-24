@@ -2,8 +2,8 @@ angular
   .module("AngularApp")
   .controller("AdminController", AdminController);
 
-AdminController.$inject = ["Product", '$resource', '$state', 'Order']
-function AdminController(Product, $resource, $state, Order) {
+AdminController.$inject = ["Product", '$resource', '$state', 'Order', 'MainCategory']
+function AdminController(Product, $resource, $state, Order, MainCategory) {
   var self = this;
 
   // var Orders = $resource('http://localhost:3000/api/orders/:id', {id: '@_id'}, { 'update': { method: 'PUT' }

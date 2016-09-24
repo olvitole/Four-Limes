@@ -6,21 +6,43 @@ var authController = require('../controllers/authentications');
 var ordersController = require('../controllers/ordersController');
 var productsController = require('../controllers/productsController');
 var paymentController = require('../controllers/paymentController');
+var mainCategoriesController = require('../controllers/mainCategoriesController');
+var subCategoriesController = require('../controllers/subCategoriesController');
 var upload = require('./upload');
 
 function secureRoute(req, res, next) {
-  if(!req.headers.authorization) 
+  if(!req.headers.authorization)
     return res.status(401).json({ message: "Unauthorized" });
 
   var token = req.headers.authorization.replace('Bearer ', '');
   jwt.verify(token, secret, function(err, payload) {
-    if(err || !payload) 
+    if(err || !payload)
       return res.status(401).json( { message: "Unauthorized" });
 
     req.user = payload;
     next();
   });
 }
+
+router.route('/maincategory')
+  .get(mainCategoriesController.index)
+  .post(mainCategoriesController.create);
+
+router.route('/maincategory/:id')
+  .get(mainCategoriesController.show)
+  .put(mainCategoriesController.update)
+  .patch(mainCategoriesController.update)
+  .delete(mainCategoriesController.delete);
+
+router.route('/subcategory')
+  .get(subCategoriesController.index)
+  .post(subCategoriesController.create);
+
+router.route('/subcategory/:id')
+  .get(subCategoriesController.show)
+  .put(subCategoriesController.update)
+  .patch(subCategoriesController.update)
+  .delete(subCategoriesController.delete);
 
 router.route('/payment')
   .post(paymentController.payment);
@@ -38,7 +60,7 @@ router.route('/product/:id')
   .delete(productsController.delete);
 
 router.route('/orders')
-  .all(secureRoute)    
+  .all(secureRoute)
   .get(ordersController.index)
   .post(ordersController.create);
 

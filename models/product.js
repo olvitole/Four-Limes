@@ -12,7 +12,9 @@ var productSchema = new mongoose.Schema({
   quantityAvail: { type: Number },
   packSize: { type: String },
   onSpecial: { type: Boolean, default: false },
-  taxRate: { type: Number }
+  taxRate: { type: Number },
+  mainCategory: { type: mongoose.Schema.ObjectId, ref: 'mainCategory' },
+  subCategory: [{ type: mongoose.Schema.ObjectId, ref: 'subCategory' }]
 });
 
 productSchema.path('image')

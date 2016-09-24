@@ -16,7 +16,7 @@
         <td><div class="btn-group btn-group-sm" role="group">
               <button class="btn btn-secondary btn-sm" ui-sref="orderShow({ id: order._id })">Detail</button>
               <button class="btn btn-secondary btn-sm">*</button>
-              <button type="button" ng-click="admin.delete(order)" class="btn btn-danger btn-sm">Remove from orders list</button> 
+              <button type="button" ng-click="admin.delete(order)" class="btn btn-danger btn-sm">Remove from orders list</button>
             </div>
         </td>
       </tr>
@@ -30,6 +30,27 @@
   <h5>Add a product to the store:</h5>
 
   <button class="btn btn-primary" ng-click="admin.addProduct()">Add Product</button>
+  <hr>
+  <p>Manage Categories:</p>
+  <div ng-controller="CategoriesController as MainCategories">
+    <ul>
+      <li ng-repeat="category in MainCategories.all">{{ category.categoryName }}</li>
+    </ul>
+  </div>
+  <button class="btn btn-primary" ng-click="isShowFormOpen = isShowFormOpen ? false : true">Add Category</button>
+  <div ng-show="isShowFormOpen" ng-controller="CategoriesCreateController as Create">
+    <form ng-submit="Create.submit()">
+      <div class="form-group">
+        <div class='col-sm-10'>
+          <input type="text" name="categoryName" class="form-control" ng-model="Create.new.categoryName" placeholder="Category name">
+        </div>
+        <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+  <hr>
+
   <div ng-controller="ProductsController as products" class="table-responsive">
     <br>
     <h5>Products in Store:</h5>
@@ -37,6 +58,7 @@
     <table class="table table-hover">
         <thead>
           <tr>
+            <th>Product Category</th>
             <th>Item Name</th>
             <th>Item Type</th>
             <th>Quantity Available</th>
@@ -45,8 +67,9 @@
         </thead>
         <tbody>
           <tr ng-repeat="item in products.all">
-            <td >{{ item.itemName }}</td>
-            <td >{{ item.type }}</td>
+            <td>{{ item.mainCategory.categoryName }}</td>
+            <td>{{ item.itemName }}</td>
+            <td>{{ item.type }}</td>
             <td>{{ item.quantityAvail }}</td>
             <td><button type="button" class="btn btn-danger btn-sm" ng-click="products.delete(item)">Remove</button></td>
           </tr>

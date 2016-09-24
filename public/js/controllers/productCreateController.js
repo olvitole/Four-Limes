@@ -2,11 +2,12 @@ angular
   .module("AngularApp")
   .controller("ProductsCreateController", ProductsCreateController);
 
-ProductsCreateController.$inject = ["Product", '$resource', '$state']
-function ProductsCreateController(Product, $resource, $state) {
+ProductsCreateController.$inject = ["Product", '$resource', '$state', 'MainCategory']
+function ProductsCreateController(Product, $resource, $state, MainCategory) {
   var self = this;
 
   this.all = Product.query();
+  this.MainCategories = MainCategory.query();
 
   // Create
   this.new = {};
