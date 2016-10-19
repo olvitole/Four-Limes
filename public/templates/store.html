@@ -19,12 +19,24 @@
         <div class="input-group">
           <!-- <div class="input-group-addon">Search</div> -->
             <input type="text" class="form-control" placeholder="Search Products..." ng-model="searchProduct">
-
         </div>
       </div>
     </form>
   </div>
+
+  <div class="col-xs-4">
+    <label for="mainCategorySelect">Select</label>
+    <select id="mainCategorySelect" name="mainCategorySelect" ng-model="mainCategorySelectModel">
+    <!-- <select id="mainCategorySelect" name="mainCategorySelect" ng-model="mainCategorySelectModel" ng-init="mainCategorySelectModel=products.all[0].mainCategory._id"> -->
+      <option value="">a category</option>
+      <option value="{{ category._id }}" ng-repeat="category in store.allCategories ">{{ category.categoryName }}</option>
+    </select>
+  </div>
+  <button type="button" class="btn btn-primary" ng-click='mainCategorySelect=""'>Clear</button>
+  <!-- <h3>MCS: {{ mainCategorySelectModel.categoryName }}</h3> -->
 </div>
+
+
 
 <!-- Products as cards -->
   <div ng-controller="ProductsController as products">
@@ -32,7 +44,9 @@
       <h4 ng-if="searchProduct">Showing only search results with <div class="highlight">'{{ searchProduct }}'</div></h4>
       <div class="row">
         <div class="card-group">
-          <div class="col-md-4" ng-repeat="product in products.all | filterBy: ['itemName', 'type', 'shortDescription', 'longDescription']: searchProduct">
+          <!-- <div class="col-md-4" ng-repeat="product in products.all" ng-show="mainCategory.categoryName='Fruit'"> --> <!--filterBy: ['mainCategory']: mainCategorySelectModel -->
+          <div class="col-md-4" ng-repeat="product in products.all | filterBy: ['itemName', 'type', 'shortDescription', 'longDescription']: searchProduct | filter: mainCategorySelectModel">
+            <h4 ng-if="mainCategorySelectModel.length === 0 && searchProduct === '' ">No Products for that Category</h4>
             <div class="card">
                <div class="card-block">
                 <h4 class="card-title">{{ product.itemName }}</h4>

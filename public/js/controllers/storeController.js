@@ -1,11 +1,11 @@
 angular
   .module("AngularApp")
-  .controller("StoreController", StoreController)
+  .controller("StoreController", StoreController);
 
 
-StoreController.$inject = ["TokenService", '$state', '$rootScope', 'ngCart', 'Order'];
+StoreController.$inject = ["TokenService", '$state', '$rootScope', 'ngCart', 'Order', 'Product', 'MainCategory'];
 
-function StoreController(TokenService, $state, $rootScope, ngCart, Order) {
+function StoreController(TokenService, $state, $rootScope, ngCart, Order, Product, MainCategory) {
   var self = this;
   ngCart.setTaxRate(0);
   ngCart.setShipping(0);
@@ -15,9 +15,10 @@ function StoreController(TokenService, $state, $rootScope, ngCart, Order) {
     //console.log("Order was made: ", data._id);
   });
 
-  $rootScope.$on("paymentSuccessful"), function(event, data) {
+  $rootScope.$on("paymentSuccessful", function(event, data) {
     ngCart.empty(true);
-  }
+  });
 
+  this.allCategories = MainCategory.query();
   self.searchProduct = '';
 }
